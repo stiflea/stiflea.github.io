@@ -4,9 +4,9 @@ layout: Blog
 icon: home
 title: 主页
 # heroImage: /logo.svg
-heroText: 陈清华的站点
+heroText: 陈清华的物料阁
 tagline: 好风凭借力，送我上青云
-heroFullScreen: true
+heroFullScreen: false
 projects:
   - icon: project
     name: project name
@@ -28,21 +28,6 @@ projects:
     desc: Detailed description of the article
     link: https://link.to.your.article
 
-  - icon: friend
-    name: friend name
-    desc: Detailed description of friend
-    link: https://link.to.your.friend
-
-  - icon: /logo.svg
-    name: custom item
-    desc: Detailed description of this custom item
-    link: https://link.to.your.friend
-
 footer: 好风凭借力，送我上青云
 ---
 
-This is a blog home page demo.
-
-To use this layout, you should set both `layout: Blog` and `home: true` in the page front matter.
-
-For related configuration docs, please see [blog homepage](https://vuepress-theme-hope.github.io/v2/guide/blog/home/).

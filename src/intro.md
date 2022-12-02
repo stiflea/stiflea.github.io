@@ -2,6 +2,6 @@
 icon: info
 ---
 
-# Intro Page
+# 介绍页
 
 Place your introduction and profile heare.
