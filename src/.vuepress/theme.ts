@@ -1,6 +1,6 @@
 import { hopeTheme } from "vuepress-theme-hope";
-import { enNavbar } from "./navbar/index.js";
-import { enSidebar } from "./sidebar/index.js";
+import { Navbar } from "./navbar.js";
+import { Sidebar } from "./sidebar.js";
 
 export default hopeTheme({
   hostname: "https://mister-hope.github.io",
@@ -20,25 +20,18 @@ export default hopeTheme({
 
   blog: {
     medias: {
-      BiliBili: "https://example.com",
-      Email: "https://example.com",
-      Gitee: "https://example.com",
-      GitHub: "https://github.com/deantook",
-      QQ: "498531492",
-      Wechat: "https://example.com",
-      Weibo: "https://example.com",
-      Youtube: "https://example.com",
-      Zhihu: "https://example.com"
+      Email: "chenyunlong99@outlook.com",
+      GitHub: "https://github.com/deantook"
     },
   },
 
   locales: {
     "/": {
       // navbar
-      navbar: enNavbar,
+      navbar: Navbar,
 
       // sidebar
-      sidebar: enSidebar,
+      sidebar: Sidebar,
 
       footer: "Default footer",
 
