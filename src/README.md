@@ -4,7 +4,7 @@ layout: Blog
 icon: home
 title: Blog Home
 heroImage: /logo.svg
-heroText: the name of your blog
+heroText: 陈清华的站点
 tagline: You can put your slogan here
 heroFullScreen: true
 projects:
