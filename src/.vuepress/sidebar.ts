@@ -4,20 +4,26 @@ export const Sidebar = sidebar({
   "/": [
     "",
     // "intro",
-    "vuepress-doc",
+    // "vuepress-doc",
     {
-      icon: "discover",
-      text: "Demo",
-      prefix: "demo/",
-      link: "demo/",
-      children: "structure",
+      icon: "repo",
+      text: "杂谈",
+      prefix: "post",
+      children: "structure"
     },
     {
-      text: "Articles",
       icon: "note",
-      prefix: "posts/",
-      children: "structure",
+      text: "文章",
+      prefix: "notes",
+      collapsible: true,
+      children: "structure"
     },
-    
+    {
+      icon: "read",
+      text: "存档",
+      prefix: "arch",
+      collapsible: true,
+      children: "structure"
+    }
   ],
 });

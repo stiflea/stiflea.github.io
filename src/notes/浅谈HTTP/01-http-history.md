@@ -7,7 +7,6 @@ category:
 tag:
   - http
 ---
-
 # 时势与英雄：HTTP的前世今生
 
 ## 史前时期
