@@ -20,7 +20,7 @@ export default hopeTheme({
 
   blog: {
     medias: {
-      Email: "chenyunlong99@outlook.com",
+      Email: "https://chenyunlong99@outlook.com",
       GitHub: "https://github.com/deantook"
     },
   },
@@ -33,7 +33,7 @@ export default hopeTheme({
       // sidebar
       sidebar: Sidebar,
 
-      footer: "Default footer",
+      footer: "好风凭借力，送我上青云",
 
       displayFooter: true,
 

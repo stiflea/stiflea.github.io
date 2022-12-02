@@ -6,7 +6,7 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "zh-CN",
-      title: "陈清华的物料阁",
+      title: "文澜阁",
       description: "好风凭借力，送我上青云",
     }
   },
