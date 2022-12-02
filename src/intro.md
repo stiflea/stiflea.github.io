@@ -4,4 +4,4 @@ icon: info
 
 # Intro Page
 
-Place your introduction and profile here.
+Place your introduction and profile heare.
