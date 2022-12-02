@@ -43,10 +43,5 @@ export const zhNavbar = navbar([
       "tomato",
       "strawberry",
     ],
-  },
-  {
-    text: "V2 文档",
-    icon: "note",
-    link: "https://vuepress-theme-hope.github.io/v2/zh/",
-  },
+  }
 ]);

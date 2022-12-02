@@ -2,10 +2,10 @@
 home: true
 layout: Blog
 icon: home
-title: Blog Home
-heroImage: /logo.svg
+title: 主页
+# heroImage: /logo.svg
 heroText: 陈清华的站点
-tagline: You can put your slogan here
+tagline: 好风凭借力，送我上青云
 heroFullScreen: true
 projects:
   - icon: project
@@ -38,7 +38,7 @@ projects:
     desc: Detailed description of this custom item
     link: https://link.to.your.friend
 
-footer: customize your footer text
+footer: 好风凭借力，送我上青云
 ---
 
 This is a blog home page demo.
