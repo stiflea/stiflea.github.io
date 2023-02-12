@@ -28,5 +28,10 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
 EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
+
+
+
+docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=dean123 mysql
+docker run --name redis -p 6379:6379 -d --restart=always redis redis --appendonly yes --requirepass dean123
 ```
 
