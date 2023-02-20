@@ -33,7 +33,7 @@ sudo systemctl restart docker
 
 docker run -itd --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=dean123 mysql
 docker run --name redis -p 6379:6379 -d --restart=always redis --appendonly yes --requirepass dean123
-docker run -d --name nacos -p 9848:9848 -p 8848:8848 -e PREFER_HOST_MODE=hostname -e MODE=standalone nacos/nacos-server
+docker run -d --name nacos -p 8848:8848 -p 9848:9848 -p 9849:9849 -e PREFER_HOST_MODE=hostname -e MODE=standalone nacos/nacos-server
 docker run -it --name postgres --restart always -e POSTGRES_PASSWORD='dean123' -p 5432:5432 -d postgres
 
 ```
