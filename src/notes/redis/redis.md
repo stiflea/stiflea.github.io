@@ -10,3 +10,14 @@ Redis的应用场景很多，比如：
 - 排行榜：利用Redis的有序集合类型，可以实现各种排行榜功能，如销量榜、上新榜等。
 - 分布式锁：利用Redis的单线程特性和原子操作，可以实现分布式锁功能，解决多服务器并发问题
 - 消息队列：利用Redis的列表类型，可以实现消息队列功能，支持发布订阅模式
+
+
+
+
+
+
+
+```
+SET key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL]
+```
+
