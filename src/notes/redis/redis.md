@@ -1,4 +1,4 @@
-# redis
+# redis 基础
 
 Redis 是C语言开发的一个开源高性能键值对的*内存数据库*，可以用来做数据库、缓存、[消息中间件](https://so.csdn.net/so/search?q=消息中间件&spm=1001.2101.3001.7020)等场景，是一种NoSQL(not-only sql,非关系型数据库)的数据库。
 
@@ -21,3 +21,54 @@ Redis的应用场景很多，比如：
 SET key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL]
 ```
 
+十大数据类型
+
+- string
+- list
+- hash
+- set
+- zset
+- bitmap
+- HyperLog
+- GEO
+- Stream
+- bitfield
+
+## Redis 持久化
+
+- RDB
+- AOF
+- RDB+AOF
+
+## 复制 replica
+
+功能
+
+- 主从模式
+- 读写分离
+- 容灾恢复
+- 数据备份
+- 水平扩容
+
+劣势
+
+- 需要人工干预
+
+## 哨兵 sentinel
+
+功能
+
+- 主从监控
+- 消息通知
+- 故障转移
+- 配置中心
+
+劣势
+
+- 哨兵集群+主从复制,并不能保证数据零丢失
+
+## 集群 cluster
+
+- 多master
+- 自带哨兵
+- 
