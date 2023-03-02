@@ -1,32 +1,23 @@
 # redis 基础
 
-Redis的应用场景：
+## Redis的应用场景
 
 - 缓存：利用Redis的高速访问和键过期功能，可以提升网站性能和降低关系型数据库压力
 - 排行榜：利用Redis的有序集合类型，可以实现各种排行榜功能，如销量榜、上新榜等。
 - 分布式锁：利用Redis的单线程特性和原子操作，可以实现分布式锁功能，解决多服务器并发问题
 - 消息队列：利用Redis的列表类型，可以实现消息队列功能，支持发布订阅模式
 
-Redis 安装
+## Redis 安装
 
 ```bash
 cd /usr/local/src
 wget https://codeload.github.com/redis/redis/tar.gz/refs/tags/7.0.8
+tar -zxvf 7.0.8
+cd redis-7.0.8
+make && make install
 ```
 
-getc
-
-
-
-
-
-
-
-```
-SET key value [NX|XX] [GET] [EX seconds|PX milliseconds|EXAT unix-time-seconds|PXAT unix-time-milliseconds|KEEPTTL]
-```
-
-十大数据类型
+## 十大数据类型
 
 - string
 - list
