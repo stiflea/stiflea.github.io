@@ -3,12 +3,11 @@ import { Navbar } from "./navbar.js";
 import { Sidebar } from "./sidebar.js";
 
 export default hopeTheme({
-  hostname: "https://mister-hope.github.io",
-
+  hostname: "https://stilfea.github.io",
 
   iconAssets: "iconfont",
 
-  // logo: "/logo.svg",
+  // logo: "/icon.svg",
 
   docsDir: "docs",
 
@@ -18,11 +17,9 @@ export default hopeTheme({
     "/": {
       // navbar
       navbar: Navbar,
-
       // sidebar
       sidebar: Sidebar,
-
-      footer: "好风凭借力，送我上青云",
+      footer: "若非生活所迫，谁愿满身才华",
 
       displayFooter: true,
 

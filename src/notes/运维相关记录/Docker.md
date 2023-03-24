@@ -3,7 +3,7 @@ title: CentOS 安装 Docker
 ---
 
 # CentOS 安装 Docker
-
+安装步骤
 ```bash
 sudo yum remove docker \
                   docker-client \
