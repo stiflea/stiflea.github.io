@@ -1,5 +1,6 @@
 ---
 title: CentOS 安装 Docker
+author: 陈清华
 ---
 
 # CentOS 安装 Docker

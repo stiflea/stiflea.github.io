@@ -1,15 +1,24 @@
-import { hopeTheme } from "vuepress-theme-hope";
+import {blog, hopeTheme} from "vuepress-theme-hope";
 import { Navbar } from "./navbar.js";
 import { Sidebar } from "./sidebar.js";
 
 export default hopeTheme({
   hostname: "https://stilfea.github.io",
 
+  author:"窒息",
+
   iconAssets: "iconfont",
 
   // logo: "/icon.svg",
 
   docsDir: "docs",
+  blog: {
+    // timeline: ""
+  },
+  repo: "https://github.com/stiflea/stiflea.github.io",
+
+  // darkmode: "switch",
+
 
   pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
 
