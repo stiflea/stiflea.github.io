@@ -6,7 +6,7 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "zh-CN",
-      title: "文澜阁",
+      title: "窒息",
       description: "好风凭借力，送我上青云",
     }
   },

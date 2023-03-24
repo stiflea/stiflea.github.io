@@ -5,10 +5,6 @@ import { Sidebar } from "./sidebar.js";
 export default hopeTheme({
   hostname: "https://mister-hope.github.io",
 
-  author: {
-    name: "陈清华",
-    url: "https://deantook.top",
-  },
 
   iconAssets: "iconfont",
 
@@ -17,13 +13,6 @@ export default hopeTheme({
   docsDir: "docs",
 
   pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
-
-  blog: {
-    medias: {
-      Email: "https://chenyunlong99@outlook.com",
-      GitHub: "https://github.com/deantook"
-    },
-  },
 
   locales: {
     "/": {
@@ -37,10 +26,6 @@ export default hopeTheme({
 
       displayFooter: true,
 
-      blog: {
-        description: "全栈工程师",
-        intro: "/intro.html",
-      },
 
       metaLocales: {
         editLink: "Edit this page on GitHub",
