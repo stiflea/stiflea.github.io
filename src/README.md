@@ -5,29 +5,31 @@ icon: home
 title: 主页
 # heroImage: /logo.svg
 heroText: 窒息
-tagline: 好风凭借力，送我上青云。
+tagline: 若非生活所迫，谁愿满身才华。
 heroFullScreen: false
 projects:
-  - icon: project
-    name: project name
-    desc: project detailed description
+  - icon: link
+    name: 文章贡献榜 no.1
+    desc: 生财哥
     link: https://your.project.link
 
   - icon: link
-    name: link name
-    desc: link detailed description
+    name: 文章贡献榜 no.2
+    desc: ouka
     link: https://link.address
 
-  - icon: book
-    name: book name
-    desc: Detailed description of the book
-    link: https://link.to.your.book
+  - icon: link
+    name: 文章贡献榜 no.3
+    desc: 虚位以待
+    link: https://link.address
 
-  - icon: article
-    name: article name
-    desc: Detailed description of the article
-    link: https://link.to.your.article
+  - icon: 文章link
+    name: 文章贡献榜 no.4
+    desc: 虚位以待
+    link: https://link.address
 
-footer: 好风凭借力，送我上青云
+  
+
+footer: 若非生活所迫，谁愿满身才华
 ---
 
