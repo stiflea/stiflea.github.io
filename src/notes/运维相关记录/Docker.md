@@ -1,3 +1,7 @@
+---
+title: CentOS 安装 Docker
+---
+
 # CentOS 安装 Docker
 
 ```bash
