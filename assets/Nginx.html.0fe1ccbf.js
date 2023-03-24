@@ -1,4 +1,4 @@
-import{_ as n}from"./_plugin-vue_export-helper.cdc0426e.js";import{o as i,c as s,a as e}from"./app.e2dc4a43.js";const l={},a=e(`<h1 id="nginx-防火墙模块-静态编译安装-centos" tabindex="-1"><a class="header-anchor" href="#nginx-防火墙模块-静态编译安装-centos" aria-hidden="true">#</a> Nginx 防火墙模块 静态编译安装 CentOS</h1><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code># 安装环境
+import{_ as n}from"./_plugin-vue_export-helper.cdc0426e.js";import{o as i,c as s,a as e}from"./app.52dfa0a2.js";const l={},a=e(`<h1 id="nginx-防火墙模块-静态编译安装-centos" tabindex="-1"><a class="header-anchor" href="#nginx-防火墙模块-静态编译安装-centos" aria-hidden="true">#</a> Nginx 防火墙模块 静态编译安装 CentOS</h1><div class="language-text line-numbers-mode" data-ext="text"><pre class="language-text"><code># 安装环境
 yum install -y git gcc pcre pcre-devel zlib zlib-devel flex bison
 
 cd /usr/local/src
