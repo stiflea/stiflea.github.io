@@ -10,12 +10,12 @@ heroFullScreen: false
 projects:
   - icon: link
     name: 文章贡献榜 no.1
-    desc: 生财哥
-    link: https://your.project.link
+    desc: ouka
+    link: https://github.com/akuowen
 
   - icon: link
     name: 文章贡献榜 no.2
-    desc: ouka
+    desc: 生财哥
     link: https://link.address
 
   - icon: link
