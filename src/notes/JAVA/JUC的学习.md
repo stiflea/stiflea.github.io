@@ -1,3 +1,10 @@
+---
+title: JUC的学习
+author: caihua
+---
+
+
+
 1、什么是JUC
 
 **源码+官方文档**
@@ -2238,8 +2245,6 @@ public class Test {
 
 **.parallel().reduce(0, Long::sum)使用一个并行流去计算整个计算，提高效率。**
 
-![image-20200718234505626](C:\Users\ogj\AppData\Roaming\Typora\typora-user-images\image-20200718234505626.png)
-
 **reduce方法的优点：**
 
 ![image-20200718234804521](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718234804521.png)
@@ -2822,7 +2827,6 @@ CAS：比较当前工作内存中的值 和 主内存中的值，如果这个值
 
 > CAS：ABA问题？(狸猫换太子)
 
-![image-20200727154814198](C:\Users\ogj\AppData\Roaming\Typora\typora-user-images\image-20200727154814198.png)
 
 线程1：期望值是1，要变成2；
 
