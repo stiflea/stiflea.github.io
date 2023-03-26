@@ -709,7 +709,7 @@ class Data3{
 public class ListTest {
     public static void main(String[] args) {
 
-        List<Object> arrayList = new ArrayList<>();
+        List<Object> arrayList = new ArrayList\<>();
 
         for(int i=1;i<=10;i++){
             new Thread(()->{
@@ -734,13 +734,13 @@ public class ListTest {
 
 ![image-20200714223347796](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714223347796.png)
 
- **2、使用Collections.synchronizedList(new ArrayList<>());**
+ **2、使用Collections.synchronizedList(new ArrayList\<>());**
 
 ```java
 public class ListTest {
     public static void main(String[] args) {
 
-        List<Object> arrayList = Collections.synchronizedList(new ArrayList<>());
+        List<Object> arrayList = Collections.synchronizedList(new ArrayList\<>());
 
         for(int i=1;i<=10;i++){
             new Thread(()->{
@@ -753,13 +753,13 @@ public class ListTest {
 }
 ```
 
-**3、使用JUC中的包：List<Object> arrayList = new CopyOnWriteArrayList<>();**
+**3、使用JUC中的包：List<Object> arrayList = new CopyOnWriteArrayList\<>();**
 
 ```java
 public class ListTest {
     public static void main(String[] args) {
 
-        List<Object> arrayList = new CopyOnWriteArrayList<>();
+        List<Object> arrayList = new CopyOnWriteArrayList\<>();
 
         for(int i=1;i<=10;i++){
             new Thread(()->{
@@ -840,8 +840,8 @@ private boolean addIfAbsent(E e, Object[] snapshot) {
 // 解决方案：
 public class SetTest {
     public static void main(String[] args) {
-//        Set<String> hashSet = Collections.synchronizedSet(new HashSet<>()); //解决方案1
-        Set<String> hashSet = new CopyOnWriteArraySet<>();//解决方案2
+//        Set<String> hashSet = Collections.synchronizedSet(new HashSet\<>()); //解决方案1
+        Set<String> hashSet = new CopyOnWriteArraySet\<>();//解决方案2
         for (int i = 1; i < 100; i++) {
             new Thread(()->{
                 hashSet.add(UUID.randomUUID().toString().substring(0,5));
@@ -858,7 +858,7 @@ hashSet底层就是一个**HashMap**；
 
 ```java
 public HashSet() {
-        map = new HashMap<>();
+        map = new HashMap\<>();
 }
 
 //add 本质其实就是一个map的key，map的key是无法重复的，所以使用的就是map存储
@@ -881,8 +881,8 @@ private static final Object PRESENT = new Object();
 
 ```
 //map 是这样用的吗？  不是，工作中不使用这个
-//默认等价什么？ new HashMap<>(16,0.75);
-Map<String, String> map = new HashMap<>();
+//默认等价什么？ new HashMap\<>(16,0.75);
+Map<String, String> map = new HashMap\<>();
 //加载因子、初始化容量
 ```
 
@@ -895,8 +895,8 @@ Map<String, String> map = new HashMap<>();
 ```java
 public static void main(String[] args) {
         //map 是这样用的吗？  不是，工作中不使用这个
-        //默认等价什么？ new HashMap<>(16,0.75);
-        Map<String, String> map = new HashMap<>();
+        //默认等价什么？ new HashMap\<>(16,0.75);
+        Map<String, String> map = new HashMap\<>();
         //加载因子、初始化容量
         for (int i = 1; i < 100; i++) {
             new Thread(()->{
@@ -911,7 +911,7 @@ public static void main(String[] args) {
 
 **解决方案：**
 
-- **使用Collections.synchronizedMap(new HashMap<>());处理**；
+- **使用Collections.synchronizedMap(new HashMap\<>());处理**；
 -  **使用ConcurrentHashMap进行并发处理**
 
 #### TODO:研究ConcurrentHashMap底层原理：
@@ -1198,10 +1198,10 @@ public class CallableTest {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         for (int i = 1; i < 10; i++) {
 //            new Thread(new Runnable()).start();
-//            new Thread(new FutureTask<>( Callable)).start();
+//            new Thread(new FutureTask\<>( Callable)).start();
             MyThread thread= new MyThread();
             //适配类：FutureTask
-            FutureTask<String> futureTask = new FutureTask<>(thread);
+            FutureTask<String> futureTask = new FutureTask\<>(thread);
             //放入Thread使用
             new Thread(futureTask,String.valueOf(i)).start();
             //获取返回值
@@ -1397,7 +1397,7 @@ public class ReadWriteLockDemo {
 }
 
 class MyCache_ReadWriteLock{
-    private volatile Map<String,String> map=new HashMap<>();
+    private volatile Map<String,String> map=new HashMap\<>();
 
     public void put(String key,String value){
         //写入
@@ -1495,7 +1495,7 @@ public class ReadWriteLockDemo {
 }
 
 class MyCache_ReadWriteLock{
-    private volatile Map<String,String> map=new HashMap<>();
+    private volatile Map<String,String> map=new HashMap\<>();
 
     //使用读写锁
     private ReadWriteLock readWriteLock=new ReentrantReadWriteLock();
@@ -1630,7 +1630,7 @@ BlockingQueue以下有Link链表实现的阻塞队列、也有Array数组实现�
      */
     public static void test1(){
         //需要初始化队列的大小
-        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue<>(3);
+        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue\<>(3);
 
         System.out.println(blockingQueue.add("a"));
         System.out.println(blockingQueue.add("b"));
@@ -1649,7 +1649,7 @@ BlockingQueue以下有Link链表实现的阻塞队列、也有Array数组实现�
      * 不抛出异常，有返回值
      */
     public static void test2(){
-        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue<>(3);
+        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue\<>(3);
         System.out.println(blockingQueue.offer("a"));
         System.out.println(blockingQueue.offer("b"));
         System.out.println(blockingQueue.offer("c"));
@@ -1667,7 +1667,7 @@ BlockingQueue以下有Link链表实现的阻塞队列、也有Array数组实现�
      * 等待 一直阻塞
      */
     public static void test3() throws InterruptedException {
-        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue<>(3);
+        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue\<>(3);
 
         //一直阻塞 不会返回
         blockingQueue.put("a");
@@ -1689,7 +1689,7 @@ BlockingQueue以下有Link链表实现的阻塞队列、也有Array数组实现�
      *  这种情况也会等待队列有位置 或者有产品 但是会超时结束
      */
     public static void test4() throws InterruptedException {
-        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue<>(3);
+        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue\<>(3);
         blockingQueue.offer("a");
         blockingQueue.offer("b");
         blockingQueue.offer("c");
@@ -1730,7 +1730,7 @@ put了一个元素，就必须从里面先take出来，否则不能再put进去�
  */
 public class SynchronousQueueDemo {
     public static void main(String[] args) {
-        BlockingQueue<String> synchronousQueue = new SynchronousQueue<>();
+        BlockingQueue<String> synchronousQueue = new SynchronousQueue\<>();
         //研究一下 如果判断这是一个同步队列
 
         //使用两个进程
@@ -3022,7 +3022,7 @@ public class SpinlockDemo {
 
     //int 0
     //thread null
-    AtomicReference<Thread> atomicReference=new AtomicReference<>();
+    AtomicReference<Thread> atomicReference=new AtomicReference\<>();
 
     //加锁
     public void myLock(){
@@ -3190,7 +3190,7 @@ ThreadLocal意思是对于每个线程都有自己的变量，而且这个变量
 ```java
 public class TestThreadLocal {
     public static void main(String[] args) {
-        ThreadLocal<String> local = new ThreadLocal<>();
+        ThreadLocal<String> local = new ThreadLocal\<>();
         //新建一个随机数类
         Random random=new Random();
         IntStream.range(0,5).forEach(a->new Thread(()->{
