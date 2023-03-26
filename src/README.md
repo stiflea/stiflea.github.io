@@ -16,7 +16,7 @@ projects:
   - icon: link
     name: 文章贡献榜 no.2
     desc: 生财哥
-    link: https://link.address
+    link: https://github.com/ogj130
 
   - icon: link
     name: 文章贡献榜 no.3
