@@ -1,5 +1,7 @@
 ---
+title: Nginx 防火墙模块 静态编译安装
 author: 陈清华
+isOriginal: true
 ---
 
 # Nginx 防火墙模块 静态编译安装 CentOS
