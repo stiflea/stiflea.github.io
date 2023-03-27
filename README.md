@@ -29,9 +29,9 @@
 
 框架会对 Markdown 进行增强渲染，你可以在你的 Markdown 文件中配置相关信息。
 
-推荐配置以下信息
+推荐至少配置以下信息
 
-![image-20230326215509649](http://dean-imgsubmit.oss-cn-beijing.aliyuncs.com/note/image-20230326215509649.png)
+![image-20230327154512731](http://dean-imgsubmit.oss-cn-beijing.aliyuncs.com/img/image-20230327154512731.png)
 
 ## 关于 Markdown 内容
 
