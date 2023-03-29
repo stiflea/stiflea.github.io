@@ -1,7 +1,7 @@
 ---
 title: 两个数组的交集 II
 author: ouka
-watermark: akuowen
+watermark: true
 ---
 # 两个数组的交集 II
 

@@ -1,7 +1,7 @@
 <script setup>
-import {onMounted, defineProps, onUnmounted, ref} from 'vue'
+import {onMounted, onUnmounted} from 'vue'
 import { usePageFrontmatter } from '@vuepress/client'
-const props = defineProps({author: String});
+
 
 const data = usePageFrontmatter();
 //水印逻辑来自于 @ouka
@@ -98,8 +98,8 @@ function useWatermark(appendEl = document.body) {
 
 onMounted(() => {
   var watermark = data.value.watermark;
-  if (watermark!=null&&watermark!==''){
-    useWatermark().setWatermark(watermark);
+  if (watermark===true){
+    useWatermark().setWatermark(data.value.author);
   }
 })
 onUnmounted(() => {

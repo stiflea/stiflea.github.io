@@ -1,8 +1,5 @@
 import {defineUserConfig} from "vuepress";
 import theme from "./theme.js";
-import { getDirname, path } from "@vuepress/utils";
-// @ts-ignore
-const __dirname = getDirname(import.meta.url);
 export default defineUserConfig({
   base: "/",
   locales: {
@@ -13,9 +10,6 @@ export default defineUserConfig({
     }
   },
   theme,
-  shouldPrefetch: false,
-  alias: {
-    "@MyComponent": path.resolve(__dirname, "MyComponent.vue"),
-  }
+  shouldPrefetch: false
 });
 
