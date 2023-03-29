@@ -1,11 +1,11 @@
 <script setup>
 import {onMounted, defineProps, onUnmounted, ref} from 'vue'
-
+import { usePageFrontmatter } from '@vuepress/client'
 const props = defineProps({author: String});
 
+const data = usePageFrontmatter();
 //水印逻辑来自于 @ouka
-const domSymbol = Symbol('watermark-dom')
-
+const domSymbol = Symbol('watermark-dom');
 function useWatermark(appendEl = document.body) {
   function useRafThrottle(fn) {
     let locked = false;
@@ -97,7 +97,10 @@ function useWatermark(appendEl = document.body) {
 
 
 onMounted(() => {
-  useWatermark().setWatermark(props.author);
+  var watermark = data.value.watermark;
+  if (watermark!=null&&watermark!==''){
+    useWatermark().setWatermark(watermark);
+  }
 })
 onUnmounted(() => {
   useWatermark().clear();

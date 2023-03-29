@@ -1,6 +1,7 @@
 ---
 title: 两个数组的交集 II
 author: ouka
+watermark: akuowen
 ---
 # 两个数组的交集 II
 
@@ -56,9 +57,3 @@ public int[] intersect(int[] nums1, int[] nums2) {
         return Arrays.copyOfRange(ans, 0, k);
     }
 ```
-
-
-<MyComponent author="ouka" />
-<script setup lang="ts">
-import MyComponent from "@MyComponent";
-</script>
