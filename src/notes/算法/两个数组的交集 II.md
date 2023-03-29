@@ -56,3 +56,9 @@ public int[] intersect(int[] nums1, int[] nums2) {
         return Arrays.copyOfRange(ans, 0, k);
     }
 ```
+
+
+<MyComponent author="ouka" />
+<script setup lang="ts">
+import MyComponent from "@MyComponent";
+</script>
