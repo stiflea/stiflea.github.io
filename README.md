@@ -31,6 +31,8 @@
 
 推荐至少配置以下信息
 
+如果你不想配置 务必在第一行使用一级标题作为整篇文章的标题。
+
 ![image-20230327154512731](http://dean-imgsubmit.oss-cn-beijing.aliyuncs.com/img/image-20230327154512731.png)
 
 ## 关于 Markdown 内容
