@@ -1,6 +1,9 @@
-# bean重复报错
-
-MapperScan不指定包名的时候会在SpringBootApplication的根目录开始扫描，扫描Service层时就会出现报错。
+---
+title: Mapper重复扫描bean报错
+author: deadwings
+isOriginal: true
+---
+### MapperScan不指定包名的时候会在SpringBootApplication的根目录开始扫描，扫描Service层时就会出现报错。
 
 这里有两种办法
 
