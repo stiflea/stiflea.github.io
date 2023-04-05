@@ -1,6 +1,7 @@
 ---
 title: 两个数组的交集 II
 author: ouka
+watermark: true
 ---
 # 两个数组的交集 II
 
@@ -56,3 +57,4 @@ public int[] intersect(int[] nums1, int[] nums2) {
         return Arrays.copyOfRange(ans, 0, k);
     }
 ```
+<WaterMark/>

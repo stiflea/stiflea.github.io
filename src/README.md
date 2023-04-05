@@ -10,23 +10,24 @@ heroFullScreen: false
 projects:
   - icon: link
     name: 文章贡献榜 no.1
-    desc: ouka
-    link: https://github.com/akuowen
+    desc: 生财哥
+    link: https://github.com/ogj130
 
   - icon: link
     name: 文章贡献榜 no.2
-    desc: 生财哥
-    link: https://link.address
+    desc: 陈清华
+    link: https://github.com/deantook
+    
 
   - icon: link
     name: 文章贡献榜 no.3
-    desc: 虚位以待
-    link: https://link.address
+    desc: demo
+    link: https://github.com/pengzexuan2001
 
   - icon: 文章link
     name: 文章贡献榜 no.4
-    desc: 虚位以待
-    link: https://link.address
+    desc: ouka
+    link: https://github.com/akuowen
 
   
 
