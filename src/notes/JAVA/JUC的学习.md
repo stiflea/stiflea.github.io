@@ -3,8 +3,6 @@ title: JUC的学习
 author: caihua
 ---
 
-
-
 1、什么是JUC
 
 **源码+官方文档**
@@ -13,15 +11,15 @@ JUC是 java util concurrent
 
 **面试高频问JUC~！**
 
-![image-20220220214121457](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20220220214121457.png)
+![image-20220220214121457](https://gitee.com/sunny_ou/blog/raw/master/img/image-20220220214121457.png)
 
 java.util 是Java的一个工具包~
 
-**业务：普通的线程代码 Thread** 
+**业务：普通的线程代码 Thread**
 
 **Runnable：** 没有返回值、效率相比于**Callable** 相对较低！
 
-![image-20220220214153230](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20220220214153230.png)
+![image-20220220214153230](https://gitee.com/sunny_ou/blog/raw/master/img/image-20220220214153230.png)
 
 
 
@@ -139,19 +137,19 @@ public enum State {
          * Thread state for a waiting thread.
          * A thread is in the waiting state due to calling one of the
          * following methods:
-         * \<ul>
-         *   \<li>{@link Object#wait() Object.wait} with no timeout\</li>
-         *   \<li>{@link #join() Thread.join} with no timeout\</li>
-         *   \<li>{@link LockSupport#park() LockSupport.park}\</li>
-         * \</ul>
+         * <ul>
+         *   <li>{@link Object#wait() Object.wait} with no timeout</li>
+         *   <li>{@link #join() Thread.join} with no timeout</li>
+         *   <li>{@link LockSupport#park() LockSupport.park}</li>
+         * </ul>
          *
-         * \<p>A thread in the waiting state is waiting for another thread to
+         * <p>A thread in the waiting state is waiting for another thread to
          * perform a particular action.
          *
-         * For example, a thread that has called \<tt>Object.wait()\</tt>
+         * For example, a thread that has called <tt>Object.wait()</tt>
          * on an object is waiting for another thread to call
-         * \<tt>Object.notify()\</tt> or \<tt>Object.notifyAll()\</tt> on
-         * that object. A thread that has called \<tt>Thread.join()\</tt>
+         * <tt>Object.notify()</tt> or <tt>Object.notifyAll()</tt> on
+         * that object. A thread that has called <tt>Thread.join()</tt>
          * is waiting for a specified thread to terminate.
          */
     	//等待
@@ -161,13 +159,13 @@ public enum State {
          * Thread state for a waiting thread with a specified waiting time.
          * A thread is in the timed waiting state due to calling one of
          * the following methods with a specified positive waiting time:
-         * \<ul>
-         *   \<li>{@link #sleep Thread.sleep}\</li>
-         *   \<li>{@link Object#wait(long) Object.wait} with timeout\</li>
-         *   \<li>{@link #join(long) Thread.join} with timeout\</li>
-         *   \<li>{@link LockSupport#parkNanos LockSupport.parkNanos}\</li>
-         *   \<li>{@link LockSupport#parkUntil LockSupport.parkUntil}\</li>
-         * \</ul>
+         * <ul>
+         *   <li>{@link #sleep Thread.sleep}</li>
+         *   <li>{@link Object#wait(long) Object.wait} with timeout</li>
+         *   <li>{@link #join(long) Thread.join} with timeout</li>
+         *   <li>{@link LockSupport#parkNanos LockSupport.parkNanos}</li>
+         *   <li>{@link LockSupport#parkUntil LockSupport.parkUntil}</li>
+         * </ul>
          */
     	//超时等待
         TIMED_WAITING,
@@ -235,17 +233,17 @@ public class SaleTicketDemo01 {
 
         //@FunctionalInterface 函数式接口 jdk1.8之后 lambda表达式
         new Thread(()->{
-            for(int i=0;i\<40;i++){
+            for(int i=0;i<40;i++){
                 ticket.sale();
             }
         },"A").start();
         new Thread(()->{
-            for(int i=0;i\<40;i++){
+            for(int i=0;i<40;i++){
                 ticket.sale();
             }
         },"B").start();
         new Thread(()->{
-            for(int i=0;i\<40;i++){
+            for(int i=0;i<40;i++){
                 ticket.sale();
             }
         },"C").start();
@@ -275,13 +273,13 @@ class Ticket{
 
 > Lock接口
 
-![image-20220220214210470](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20220220214210470.png)
+![image-20220220214210470](https://gitee.com/sunny_ou/blog/raw/master/img/image-20220220214210470.png)
 
 
 
-![image-20200714100351018](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714100351018.png)
+![image-20200714100351018](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714100351018.png)
 
-![image-20200714100747457](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714100747457.png)
+![image-20200714100747457](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714100747457.png)
 
 **公平锁：** 十分公平，必须先来后到~；
 
@@ -293,9 +291,9 @@ public class SaleTicketDemo02 {
         //多线程操作
         //并发：多线程操作同一个资源类，把资源类丢入线程
         Ticket2 ticket = new Ticket2();
-        new Thread(()->{for(int i=0;i\<40;i++) ticket.sale(); },"A").start();
-        new Thread(()->{for(int i=0;i\<40;i++) ticket.sale(); },"B").start();
-        new Thread(()->{for(int i=0;i\<40;i++) ticket.sale(); },"C").start();
+        new Thread(()->{for(int i=0;i<40;i++) ticket.sale(); },"A").start();
+        new Thread(()->{for(int i=0;i<40;i++) ticket.sale(); },"B").start();
+        new Thread(()->{for(int i=0;i<40;i++) ticket.sale(); },"C").start();
     }
 }
 
@@ -343,6 +341,7 @@ class Ticket2{
   lock就不一定会一直等待下去，lock会有一个trylock去尝试获取锁，不会造成长久的等待。
 
 - 5、Synchronized 是可重入锁，不可以中断的，非公平的；Lock，可重入的，可以判断锁，可以自己设置公平锁和非公平锁；
+
 - Synchronized 适合锁少量的代码同步问题，Lock适合锁大量的同步代码；
 
 
@@ -362,7 +361,7 @@ public class A {
     public static void main(String[] args) {
         Data data = new Data();
 
-        new Thread(()->{for(int i=0;i\<10;i++) {
+        new Thread(()->{for(int i=0;i<10;i++) {
             try {
                 data.increment();
             } catch (InterruptedException e) {
@@ -370,7 +369,7 @@ public class A {
             }
         }
         },"A").start();
-        new Thread(()->{for(int i=0;i\<10;i++) {
+        new Thread(()->{for(int i=0;i<10;i++) {
             try {
                 data.decrement();
             } catch (InterruptedException e) {
@@ -412,43 +411,43 @@ class Data{
 
 > 问题存在，A线程B线程，现在如果我有四个线程A B C D！
 
-![image-20200714115847944](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714115847944.png)
+![image-20200714115847944](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714115847944.png)
 
 **==解决方案==**： **if 改为while即可，防止虚假唤醒**
 
 这样就不存在问题了：
 
-![image-20200714115948539](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714115948539.png)
+![image-20200714115948539](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714115948539.png)
 
 
 
 > JUC版本的生产者和消费者问题
 
-**await、signal 替换 wait、notify**  
+**await、signal 替换 wait、notify**
 
-![image-20200714121131167](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714121131167.png)
+![image-20200714121131167](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714121131167.png)
 
 通过Lock找到Condition
 
-![image-20200714120811305](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714120811305.png)
+![image-20200714120811305](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714120811305.png)
 
 ```java
 public class B {
     public static void main(String[] args) {
         Data2 data = new Data2();
 
-        new Thread(()->{for(int i=0;i\<10;i++) {
+        new Thread(()->{for(int i=0;i<10;i++) {
             data.increment();
         }
         },"A").start();
-        new Thread(()->{for(int i=0;i\<10;i++) {
+        new Thread(()->{for(int i=0;i<10;i++) {
             data.decrement();
         }},"B").start();
-        new Thread(()->{for(int i=0;i\<10;i++) {
+        new Thread(()->{for(int i=0;i<10;i++) {
             data.increment();
         }
         },"C").start();
-        new Thread(()->{for(int i=0;i\<10;i++) {
+        new Thread(()->{for(int i=0;i<10;i++) {
             data.decrement();
         }
         },"D").start();
@@ -521,17 +520,17 @@ public class C {
     public static void main(String[] args) {
         Data3 data3 = new Data3();
         new Thread(()->{
-            for(int i=0;i\<10;i++){
+            for(int i=0;i<10;i++){
                 data3.printA();
             }
         },"A").start();
         new Thread(()->{
-            for(int i=0;i\<10;i++){
+            for(int i=0;i<10;i++){
                 data3.printB();
             }
         },"B").start();
         new Thread(()->{
-            for(int i=0;i\<10;i++){
+            for(int i=0;i<10;i++){
                 data3.printC();
             }
         },"C").start();
@@ -603,7 +602,7 @@ class Data3{
 }
 ```
 
-![image-20200714140901384](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714140901384.png)
+![image-20200714140901384](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714140901384.png)
 
 
 
@@ -617,7 +616,7 @@ class Data3{
 
 - 问题1：
 
-![image-20200714143058116](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714143058116.png)
+![image-20200714143058116](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714143058116.png)
 
 结果是：先发短信，如何再打电话！
 
@@ -627,7 +626,7 @@ class Data3{
 
 我们再来看：我们让发短信 延迟4s
 
-![image-20200714143443580](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714143443580.png)
+![image-20200714143443580](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714143443580.png)
 
 现在结果是什么呢？
 
@@ -641,7 +640,7 @@ class Data3{
 
 如果我们添加一个普通方法，那么先执行哪一个呢？
 
-![image-20200714144526071](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714144526071.png)
+![image-20200714144526071](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714144526071.png)
 
 答案是：**先执行hello，然后再执行发短信！**原因是hello是一个**普通方法**，**不受synchronized锁的影响**，但是我发现，如果我把发短信里面的延迟4秒去掉，那么就会顺序执行，先执行发短信然后再执行hello，原因应该是顺序执行的原因吧。
 
@@ -653,7 +652,7 @@ class Data3{
 
 如果我们使用的是两个对象，一个调用发短信，一个调用打电话，那么整个顺序是怎么样的呢？
 
-![image-20200714145849939](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714145849939.png)
+![image-20200714145849939](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714145849939.png)
 
 答案是：先打电话，后发短信。原因：**在发短信方法中延迟了4s，又因为synchronized锁的是对象，但是我们这使用的是两个对象，所以每个对象都有一把锁，所以不会造成锁的等待。正常执行**
 
@@ -677,7 +676,7 @@ class Data3{
 
 如果我们使用一个静态同步方法、一个同步方法、一个对象调用顺序是什么？
 
-![image-20200714151657067](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714151657067.png)
+![image-20200714151657067](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714151657067.png)
 
 明显答案是：先打电话，后发短信了。
 
@@ -687,7 +686,7 @@ class Data3{
 
 如果我们使用一个静态同步方法、一个同步方法、两个对象调用顺序是什么呢？
 
-![image-20200714152050572](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714152050572.png)
+![image-20200714152050572](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714152050572.png)
 
 当然答案是：先打电话、后发短信！
 
@@ -716,9 +715,9 @@ class Data3{
 public class ListTest {
     public static void main(String[] args) {
 
-        List\<Object> arrayList = new ArrayList\\<>();
+        List<Object> arrayList = new ArrayList<>();
 
-        for(int i=1;i\<=10;i++){
+        for(int i=1;i<=10;i++){
             new Thread(()->{
                 arrayList.add(UUID.randomUUID().toString().substring(0,5));
                 System.out.println(arrayList);
@@ -731,7 +730,7 @@ public class ListTest {
 
 会造成：
 
-![image-20200714223050294](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714223050294.png)
+![image-20200714223050294](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714223050294.png)
 
 **ArrayList 在并发情况下是不安全的！**
 
@@ -739,17 +738,17 @@ public class ListTest {
 
 **1、切换成Vector就是线程安全的啦！**
 
-![image-20200714223347796](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714223347796.png)
+![image-20200714223347796](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714223347796.png)
 
- **2、使用Collections.synchronizedList(new ArrayList\\<>());**
+**2、使用Collections.synchronizedList(new ArrayList<>());**
 
 ```java
 public class ListTest {
     public static void main(String[] args) {
 
-        List\<Object> arrayList = Collections.synchronizedList(new ArrayList\\<>());
+        List<Object> arrayList = Collections.synchronizedList(new ArrayList<>());
 
-        for(int i=1;i\<=10;i++){
+        for(int i=1;i<=10;i++){
             new Thread(()->{
                 arrayList.add(UUID.randomUUID().toString().substring(0,5));
                 System.out.println(arrayList);
@@ -760,15 +759,15 @@ public class ListTest {
 }
 ```
 
-**3、使用JUC中的包：List\<Object> arrayList = new CopyOnWriteArrayList\\<>();**
+**3、使用JUC中的包：List<Object> arrayList = new CopyOnWriteArrayList<>();**
 
 ```java
 public class ListTest {
     public static void main(String[] args) {
 
-        List\<Object> arrayList = new CopyOnWriteArrayList\\<>();
+        List<Object> arrayList = new CopyOnWriteArrayList<>();
 
-        for(int i=1;i\<=10;i++){
+        for(int i=1;i<=10;i++){
             new Thread(()->{
                 arrayList.add(UUID.randomUUID().toString().substring(0,5));
                 System.out.println(arrayList);
@@ -791,17 +790,17 @@ public class ListTest {
 
 **Vector**底层是使用**synchronized**关键字来实现的：效率特别低下。
 
-![image-20200714225024395](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714225024395.png)
+![image-20200714225024395](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714225024395.png)
 
 **CopyOnWriteArrayList**使用的是Lock锁，效率会更加高效！
 
-![image-20200714225135841](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200714225135841.png)
+![image-20200714225135841](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714225135841.png)
 
 
 
 > Set不安全
 
-![image-20200715123708481](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715123708481.png)
+![image-20200715123708481](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715123708481.png)
 
 和List、Set同级的还有一个BlockingQueue 阻塞队列；
 
@@ -824,7 +823,7 @@ private boolean addIfAbsent(E e, Object[] snapshot) {
             if (snapshot != current) {
                 // Optimize for lost race to another addXXX operation
                 int common = Math.min(snapshot.length, len);
-                for (int i = 0; i \< common; i++)
+                for (int i = 0; i < common; i++)
                     if (current[i] != snapshot[i] && eq(e, current[i]))
                         return false;
                 if (indexOf(e, current, common, len) >= 0)
@@ -847,9 +846,9 @@ private boolean addIfAbsent(E e, Object[] snapshot) {
 // 解决方案：
 public class SetTest {
     public static void main(String[] args) {
-//        Set\<String> hashSet = Collections.synchronizedSet(new HashSet\\<>()); //解决方案1
-        Set\<String> hashSet = new CopyOnWriteArraySet\\<>();//解决方案2
-        for (int i = 1; i \< 100; i++) {
+//        Set<String> hashSet = Collections.synchronizedSet(new HashSet<>()); //解决方案1
+        Set<String> hashSet = new CopyOnWriteArraySet<>();//解决方案2
+        for (int i = 1; i < 100; i++) {
             new Thread(()->{
                 hashSet.add(UUID.randomUUID().toString().substring(0,5));
                 System.out.println(hashSet);
@@ -865,7 +864,7 @@ hashSet底层就是一个**HashMap**；
 
 ```java
 public HashSet() {
-        map = new HashMap\\<>();
+        map = new HashMap<>();
 }
 
 //add 本质其实就是一个map的key，map的key是无法重复的，所以使用的就是map存储
@@ -888,24 +887,24 @@ private static final Object PRESENT = new Object();
 
 ```
 //map 是这样用的吗？  不是，工作中不使用这个
-//默认等价什么？ new HashMap\\<>(16,0.75);
-Map\<String, String> map = new HashMap\\<>();
+//默认等价什么？ new HashMap<>(16,0.75);
+Map<String, String> map = new HashMap<>();
 //加载因子、初始化容量
 ```
 
 默认加载因子是0.75,默认的初始容量是16
 
-![image-20200715125929812](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715125929812.png)
+![image-20200715125929812](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715125929812.png)
 
 同样的HashMap基础类也存在**并发修改异常**！
 
 ```java
 public static void main(String[] args) {
         //map 是这样用的吗？  不是，工作中不使用这个
-        //默认等价什么？ new HashMap\\<>(16,0.75);
-        Map\<String, String> map = new HashMap\\<>();
+        //默认等价什么？ new HashMap<>(16,0.75);
+        Map<String, String> map = new HashMap<>();
         //加载因子、初始化容量
-        for (int i = 1; i \< 100; i++) {
+        for (int i = 1; i < 100; i++) {
             new Thread(()->{
                 map.put(Thread.currentThread().getName(),UUID.randomUUID().toString().substring(0,5));
                 System.out.println(map);
@@ -918,8 +917,8 @@ public static void main(String[] args) {
 
 **解决方案：**
 
-- **使用Collections.synchronizedMap(new HashMap\\<>());处理**；
--  **使用ConcurrentHashMap进行并发处理**
+- **使用Collections.synchronizedMap(new HashMap<>());处理**；
+- **使用ConcurrentHashMap进行并发处理**
 
 #### TODO:研究ConcurrentHashMap底层原理：
 
@@ -972,14 +971,14 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
         if (key == null || value == null) throw new NullPointerException();
         int hash = spread(key.hashCode());
         int binCount = 0;
-        for (Node\<K,V>[] tab = table;;) {
-            Node\<K,V> f; int n, i, fh;
+        for (Node<K,V>[] tab = table;;) {
+            Node<K,V> f; int n, i, fh;
             if (tab == null || (n = tab.length) == 0)  //判断是否未初始化，如果没有初始化 则进行初始化
                 tab = initTable();
             else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {  //初始化完毕后  循环回来  i=(n-1)&hash 为索引值 查找这个元素，
                 //如果这个值为null  那么就是插入这个值 使用 CAS 进行插入
                 if (casTabAt(tab, i, null,
-                             new Node\<K,V>(hash, key, value, null)))  //进行add操作，使用CAS 保证线程同步安全
+                             new Node<K,V>(hash, key, value, null)))  //进行add操作，使用CAS 保证线程同步安全
                     break;                   // no lock when adding to empty bin
                 	//插入成功后 直接break 跳出循环， 然后使用count查看是否需要扩容
             }
@@ -991,7 +990,7 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
                     if (tabAt(tab, i) == f) { //查看值是否被修改了  没有被修改 才继续插入
                         if (fh >= 0) {
                             binCount = 1; //记录当前的节点数目
-                            for (Node\<K,V> e = f;; ++binCount) { 
+                            for (Node<K,V> e = f;; ++binCount) { 
                                 K ek;
                                 if (e.hash == hash &&
                                     ((ek = e.key) == key ||
@@ -1001,18 +1000,18 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
                                         e.val = value;
                                     break;
                                 }
-                                Node\<K,V> pred = e;
+                                Node<K,V> pred = e;
                                 if ((e = e.next) == null) {
-                                    pred.next = new Node\<K,V>(hash, key,
+                                    pred.next = new Node<K,V>(hash, key,
                                                               value, null); //链表插入
                                     break;
                                 }
                             }
                         }
                         else if (f instanceof TreeBin) {
-                            Node\<K,V> p;
+                            Node<K,V> p;
                             binCount = 2;
-                            if ((p = ((TreeBin\<K,V>)f).putTreeVal(hash, key,
+                            if ((p = ((TreeBin<K,V>)f).putTreeVal(hash, key,
                                                            value)) != null) {
                                 oldVal = p.val;
                                 if (!onlyIfAbsent)
@@ -1038,13 +1037,13 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
      * 保证拿到最新的数据
      * @param tab
      * @param i
-     * @param \<K>
-     * @param \<V>
+     * @param <K>
+     * @param <V>
      * @return
      */
     @SuppressWarnings("unchecked")
-    static final \<K,V> Node\<K,V> tabAt(Node\<K,V>[] tab, int i) {
-        return (Node\<K,V>)U.getObjectVolatile(tab, ((long)i \<\< ASHIFT) + ABASE);
+    static final <K,V> Node<K,V> tabAt(Node<K,V>[] tab, int i) {
+        return (Node<K,V>)U.getObjectVolatile(tab, ((long)i << ASHIFT) + ABASE);
     }
 
 /**
@@ -1055,13 +1054,13 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
      * @param i 下标
      * @param c  old value
      * @param v  new value
-     * @param \<K>
-     * @param \<V>
+     * @param <K>
+     * @param <V>
      * @return
      */
-    static final \<K,V> boolean casTabAt(Node\<K,V>[] tab, int i,
-                                        Node\<K,V> c, Node\<K,V> v) {
-        return U.compareAndSwapObject(tab, ((long)i \<\< ASHIFT) + ABASE, c, v);
+    static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
+                                        Node<K,V> c, Node<K,V> v) {
+        return U.compareAndSwapObject(tab, ((long)i << ASHIFT) + ABASE, c, v);
     }
 
     /**
@@ -1069,11 +1068,11 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
      * @param tab
      * @param i
      * @param v
-     * @param \<K>
-     * @param \<V>
+     * @param <K>
+     * @param <V>
      */
-    static final \<K,V> void setTabAt(Node\<K,V>[] tab, int i, Node\<K,V> v) {
-        U.putObjectVolatile(tab, ((long)i \<\< ASHIFT) + ABASE, v);
+    static final <K,V> void setTabAt(Node<K,V>[] tab, int i, Node<K,V> v) {
+        U.putObjectVolatile(tab, ((long)i << ASHIFT) + ABASE, v);
     }
 ```
 
@@ -1089,33 +1088,33 @@ private final void addCount(long x, int check) {
             !U.compareAndSwapLong(this, BASECOUNT, b = baseCount, s = b + x)) {
             CounterCell a; long v; int m;
             boolean uncontended = true;
-            if (as == null || (m = as.length - 1) \< 0 ||
+            if (as == null || (m = as.length - 1) < 0 ||
                 (a = as[ThreadLocalRandom.getProbe() & m]) == null ||
                 !(uncontended =
                   U.compareAndSwapLong(a, CELLVALUE, v = a.value, v + x))) {
                 fullAddCount(x, uncontended);
                 return;
             }
-            if (check \<= 1)
+            if (check <= 1)
                 return;
             s = sumCount();
         }
         if (check >= 0) {
-            Node\<K,V>[] tab, nt; int n, sc;
+            Node<K,V>[] tab, nt; int n, sc;
             while (s >= (long)(sc = sizeCtl) && (tab = table) != null &&
-                   (n = tab.length) \< MAXIMUM_CAPACITY) {
+                   (n = tab.length) < MAXIMUM_CAPACITY) {
                 int rs = resizeStamp(n);
-                if (sc \< 0) {  //这种情况代表 有其他线程正在扩容
+                if (sc < 0) {  //这种情况代表 有其他线程正在扩容
                     if ((sc >>> RESIZE_STAMP_SHIFT) != rs || sc == rs + 1 ||
                         sc == rs + MAX_RESIZERS || (nt = nextTable) == null ||
-                        transferIndex \<= 0)
+                        transferIndex <= 0)
                         break;
                     if (U.compareAndSwapInt(this, SIZECTL, sc, sc + 1))  // 通过以上五个条件 尝试进行扩容
                         transfer(tab, nt);
                 }
                 //试着让自己成为第一个执行transfer任务的线程
                 else if (U.compareAndSwapInt(this, SIZECTL, sc,
-                                             (rs \<\< RESIZE_STAMP_SHIFT) + 2))
+                                             (rs << RESIZE_STAMP_SHIFT) + 2))
                     transfer(tab, null);
                 s = sumCount(); // 重新计数，判断是否需要开启下一轮扩容
             }
@@ -1133,14 +1132,14 @@ private final void addCount(long x, int check) {
 ```java
 在这个方法中：
 使用移位巧妙的避免了乘法和减法的出现：
-sizeCtl = (n \<\< 1) - (n >>> 1); // 32 - 8  24
+sizeCtl = (n << 1) - (n >>> 1); // 32 - 8  24
 ```
 
 
 
 ## 7、Callable(简单)
 
-![image-20200715141444025](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715141444025.png)
+![image-20200715141444025](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715141444025.png)
 
 1、可以有返回值；
 
@@ -1155,7 +1154,7 @@ sizeCtl = (n \<\< 1) - (n >>> 1); // 32 - 8  24
 ```java
 public class CallableTest {
     public static void main(String[] args) {
-        for (int i = 1; i \< 10; i++) {
+        for (int i = 1; i < 10; i++) {
             new Thread(new MyThread()).start();
         }
     }
@@ -1172,9 +1171,9 @@ class MyThread implements Runnable{
 
 使用**Callable**进行多线程操作：
 
-![image-20200715143833801](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715143833801.png)
+![image-20200715143833801](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715143833801.png)
 
-Calleable\<T> 泛型T就是call运行方法的返回值类型；
+Calleable<T> 泛型T就是call运行方法的返回值类型；
 
 但是如何使用呢？
 
@@ -1182,7 +1181,7 @@ Callable怎么放入到Thread里面呢？
 
 源码分析：
 
-![image-20200715145640791](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715145640791.png)
+![image-20200715145640791](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715145640791.png)
 
 对于Thread运行，只能传入Runnable类型的参数；
 
@@ -1192,23 +1191,23 @@ Callable怎么放入到Thread里面呢？
 
 在Runnable里面有一个叫做FutureTask的实现类，我们进去看一下。
 
-![image-20200715145819947](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715145819947.png)
+![image-20200715145819947](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715145819947.png)
 
 FutureTask中可以接受Callable参数；
 
-![image-20200715145925971](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715145925971.png)
+![image-20200715145925971](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715145925971.png)
 
 这样我们就可以先把Callable 放入到FutureTask中， 如何再把FutureTask 放入到Thread就可以了。
 
 ```java
 public class CallableTest {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        for (int i = 1; i \< 10; i++) {
+        for (int i = 1; i < 10; i++) {
 //            new Thread(new Runnable()).start();
-//            new Thread(new FutureTask\\<>( Callable)).start();
+//            new Thread(new FutureTask<>( Callable)).start();
             MyThread thread= new MyThread();
             //适配类：FutureTask
-            FutureTask\<String> futureTask = new FutureTask\\<>(thread);
+            FutureTask<String> futureTask = new FutureTask<>(thread);
             //放入Thread使用
             new Thread(futureTask,String.valueOf(i)).start();
             //获取返回值
@@ -1218,7 +1217,7 @@ public class CallableTest {
     }
 }
 
-class MyThread implements Callable\<String> {
+class MyThread implements Callable<String> {
 
     @Override
     public String call() throws Exception {
@@ -1230,17 +1229,17 @@ class MyThread implements Callable\<String> {
 
 这样我们就可以使用Callable来进行多线程编程了，并且我们发现可以有返回值，并且可以抛出异常。
 
-![image-20200715150056068](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715150056068.png)
+![image-20200715150056068](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715150056068.png)
 
 注意两个重点：
 
-![image-20200715150829757](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715150829757.png)
+![image-20200715150829757](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715150829757.png)
 
 ## 8、常用的辅助类(必会！)
 
 ### 8.1 CountDownLatch
 
-![image-20200715154605191](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715154605191.png)
+![image-20200715154605191](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715154605191.png)
 
 **其实就是一个减法计数器，对于计数器归零之后再进行后面的操作，这是一个计数器！**
 
@@ -1252,7 +1251,7 @@ public class CountDownLatchDemo {
         //总数是6
         CountDownLatch countDownLatch = new CountDownLatch(6);
 
-        for (int i = 1; i \<= 6 ; i++) {
+        for (int i = 1; i <= 6 ; i++) {
             new Thread(()->{
                 System.out.println(Thread.currentThread().getName()+" Go out");
                 countDownLatch.countDown(); //每个线程都数量-1
@@ -1278,7 +1277,7 @@ await等待计数器为0，就唤醒，再继续向下运行。
 
 ### 8.2 CyclickBarrier
 
-![image-20200715155823869](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715155823869.png)
+![image-20200715155823869](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715155823869.png)
 
 其实就是一个加法计数器；
 
@@ -1291,7 +1290,7 @@ public class CyclicBarrierDemo {
             System.out.println("召唤神龙~");
         });
 
-        for (int i = 1; i \<= 7; i++) {
+        for (int i = 1; i <= 7; i++) {
             //子线程
             int finalI = i;
             new Thread(()->{
@@ -1331,7 +1330,7 @@ public class SemaphoreDemo {
     public static void main(String[] args) {
         //停车位为3个
         Semaphore semaphore = new Semaphore(3);
-        for (int i = 1; i \<= 6; i++) {
+        for (int i = 1; i <= 6; i++) {
             int finalI = i;
             new Thread(()->{
                 try {
@@ -1353,7 +1352,7 @@ public class SemaphoreDemo {
 
 原理：
 
-**semaphore.acquire()获得资源，如果资源已经使用完了，就等待资源释放后再进行使用！** 
+**semaphore.acquire()获得资源，如果资源已经使用完了，就等待资源释放后再进行使用！**
 
 **semaphore.release()释放，会将当前的信号量释放+1，然后唤醒等待的线程！**
 
@@ -1387,14 +1386,14 @@ public class ReadWriteLockDemo {
     public static void main(String[] args) {
         MyCache_ReadWriteLock mycache = new MyCache_ReadWriteLock();
         //开启5个线程 写入数据
-        for (int i = 1; i \<=5 ; i++) {
+        for (int i = 1; i <=5 ; i++) {
             int finalI = i;
             new Thread(()->{
                 mycache.put(String.valueOf(finalI),String.valueOf(finalI));
             }).start();
         }
         //开启10个线程去读取数据
-        for (int i = 1; i \<=10 ; i++) {
+        for (int i = 1; i <=10 ; i++) {
             int finalI = i;
             new Thread(()->{
                 String o = mycache.get(String.valueOf(finalI));
@@ -1404,7 +1403,7 @@ public class ReadWriteLockDemo {
 }
 
 class MyCache_ReadWriteLock{
-    private volatile Map\<String,String> map=new HashMap\\<>();
+    private volatile Map<String,String> map=new HashMap<>();
 
     public void put(String key,String value){
         //写入
@@ -1469,7 +1468,7 @@ Process finished with exit code 0
 
 但是这次我们采用更细粒度的锁：**ReadWriteLock** 读写锁来保证
 
-![image-20200715170724964](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715170724964.png)
+![image-20200715170724964](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715170724964.png)
 
 ```java
 package com.ogj.rw;
@@ -1485,14 +1484,14 @@ public class ReadWriteLockDemo {
     public static void main(String[] args) {
         MyCache_ReadWriteLock mycache = new MyCache_ReadWriteLock();
         //开启5个线程 写入数据
-        for (int i = 1; i \<=5 ; i++) {
+        for (int i = 1; i <=5 ; i++) {
             int finalI = i;
             new Thread(()->{
                 mycache.put(String.valueOf(finalI),String.valueOf(finalI));
             }).start();
         }
         //开启10个线程去读取数据
-        for (int i = 1; i \<=10 ; i++) {
+        for (int i = 1; i <=10 ; i++) {
             int finalI = i;
             new Thread(()->{
                 String o = mycache.get(String.valueOf(finalI));
@@ -1502,7 +1501,7 @@ public class ReadWriteLockDemo {
 }
 
 class MyCache_ReadWriteLock{
-    private volatile Map\<String,String> map=new HashMap\\<>();
+    private volatile Map<String,String> map=new HashMap<>();
 
     //使用读写锁
     private ReadWriteLock readWriteLock=new ReentrantReadWriteLock();
@@ -1591,11 +1590,11 @@ Thread-12 线程 读取OK
 
 队列
 
-![image-20200715214811539](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715214811539.png)
+![image-20200715214811539](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715214811539.png)
 
 阻塞队列jdk1.8文档解释：
 
-![image-20200715215418719](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715215418719.png)
+![image-20200715215418719](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715215418719.png)
 
 
 
@@ -1609,7 +1608,7 @@ blockingQueue 是Collection的一个子类；
 多线程并发处理、线程池！
 ```
 
-![image-20200715220825475](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715220825475.png)
+![image-20200715220825475](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715220825475.png)
 
 整个阻塞队列的家族如下：Queue以下实现的有Deque、AbstaractQueue、BlockingQueue；
 
@@ -1637,7 +1636,7 @@ BlockingQueue以下有Link链表实现的阻塞队列、也有Array数组实现�
      */
     public static void test1(){
         //需要初始化队列的大小
-        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue\\<>(3);
+        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue<>(3);
 
         System.out.println(blockingQueue.add("a"));
         System.out.println(blockingQueue.add("b"));
@@ -1656,7 +1655,7 @@ BlockingQueue以下有Link链表实现的阻塞队列、也有Array数组实现�
      * 不抛出异常，有返回值
      */
     public static void test2(){
-        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue\\<>(3);
+        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue<>(3);
         System.out.println(blockingQueue.offer("a"));
         System.out.println(blockingQueue.offer("b"));
         System.out.println(blockingQueue.offer("c"));
@@ -1674,7 +1673,7 @@ BlockingQueue以下有Link链表实现的阻塞队列、也有Array数组实现�
      * 等待 一直阻塞
      */
     public static void test3() throws InterruptedException {
-        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue\\<>(3);
+        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue<>(3);
 
         //一直阻塞 不会返回
         blockingQueue.put("a");
@@ -1696,7 +1695,7 @@ BlockingQueue以下有Link链表实现的阻塞队列、也有Array数组实现�
      *  这种情况也会等待队列有位置 或者有产品 但是会超时结束
      */
     public static void test4() throws InterruptedException {
-        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue\\<>(3);
+        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue<>(3);
         blockingQueue.offer("a");
         blockingQueue.offer("b");
         blockingQueue.offer("c");
@@ -1737,7 +1736,7 @@ put了一个元素，就必须从里面先take出来，否则不能再put进去�
  */
 public class SynchronousQueueDemo {
     public static void main(String[] args) {
-        BlockingQueue\<String> synchronousQueue = new SynchronousQueue\\<>();
+        BlockingQueue<String> synchronousQueue = new SynchronousQueue<>();
         //研究一下 如果判断这是一个同步队列
 
         //使用两个进程
@@ -1772,7 +1771,7 @@ public class SynchronousQueueDemo {
 }
 ```
 
-![image-20200715230517760](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200715230517760.png)
+![image-20200715230517760](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715230517760.png)
 
 
 
@@ -1824,7 +1823,7 @@ public class Demo01 {
         //线程池用完必须要关闭线程池
         try {
 
-            for (int i = 1; i \<=100 ; i++) {
+            for (int i = 1; i <=100 ; i++) {
                 //通过线程池创建线程
                 threadPool.execute(()->{
                     System.out.println(Thread.currentThread().getName()+ " ok");
@@ -1850,7 +1849,7 @@ public static ExecutorService newSingleThreadExecutor() {
     return new FinalizableDelegatedExecutorService
         (new ThreadPoolExecutor(1, 1,
                                 0L, TimeUnit.MILLISECONDS,
-                                new LinkedBlockingQueue\<Runnable>()));
+                                new LinkedBlockingQueue<Runnable>()));
 }
 ```
 
@@ -1858,7 +1857,7 @@ public static ExecutorService newSingleThreadExecutor() {
 public static ExecutorService newFixedThreadPool(int nThreads) {
     return new ThreadPoolExecutor(nThreads, nThreads,
                                   0L, TimeUnit.MILLISECONDS,
-                                  new LinkedBlockingQueue\<Runnable>());
+                                  new LinkedBlockingQueue<Runnable>());
 }
 ```
 
@@ -1866,7 +1865,7 @@ public static ExecutorService newFixedThreadPool(int nThreads) {
 public static ExecutorService newCachedThreadPool() {
     return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
                                   60L, TimeUnit.SECONDS,
-                                  new SynchronousQueue\<Runnable>());
+                                  new SynchronousQueue<Runnable>());
 }
 ```
 
@@ -1877,14 +1876,14 @@ public ThreadPoolExecutor(int corePoolSize,  //核心线程池大小
                           int maximumPoolSize, //最大的线程池大小
                           long keepAliveTime,  //超时了没有人调用就会释放
                           TimeUnit unit, //超时单位
-                          BlockingQueue\<Runnable> workQueue, //阻塞队列
+                          BlockingQueue<Runnable> workQueue, //阻塞队列
                           ThreadFactory threadFactory, //线程工厂 创建线程的 一般不用动
                           RejectedExecutionHandler handler //拒绝策略
                          ) {
-    if (corePoolSize \< 0 ||
-        maximumPoolSize \<= 0 ||
-        maximumPoolSize \< corePoolSize ||
-        keepAliveTime \< 0)
+    if (corePoolSize < 0 ||
+        maximumPoolSize <= 0 ||
+        maximumPoolSize < corePoolSize ||
+        keepAliveTime < 0)
         throw new IllegalArgumentException();
     if (workQueue == null || threadFactory == null || handler == null)
         throw new NullPointerException();
@@ -1897,13 +1896,13 @@ public ThreadPoolExecutor(int corePoolSize,  //核心线程池大小
 }
 ```
 
-![image-20200716083909144](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200716083909144.png)
+![image-20200716083909144](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200716083909144.png)
 
 阿里巴巴的Java操作手册中明确说明：对于Integer.MAX_VALUE初始值较大，所以一般情况我们要使用底层的**ThreadPoolExecutor**来创建线程池。
 
 > 业务图
 
-![image-20200716133005124](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200716133005124.png)
+![image-20200716133005124](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200716133005124.png)
 
 > 手动创建线程池
 
@@ -1913,25 +1912,25 @@ public ThreadPoolExecutor(int corePoolSize,  //核心线程池大小
 
 > 拒绝策略4种
 
-![image-20200716134748357](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200716134748357.png)
+![image-20200716134748357](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200716134748357.png)
 
 **（1）new ThreadPoolExecutor.AbortPolicy()：** //该拒绝策略为：银行满了，还有人进来，不处理这个人的，并抛出异常
 
 超出最大承载，就会抛出异常：队列容量大小+maxPoolSize
 
-![image-20200718214858130](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718214858130.png)
+![image-20200718214858130](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718214858130.png)
 
 **（2）new ThreadPoolExecutor.CallerRunsPolicy()：** //该拒绝策略为：哪来的去哪里  main线程进行处理
 
-![image-20200718215243449](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718215243449.png)
+![image-20200718215243449](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718215243449.png)
 
 **（3）new ThreadPoolExecutor.DiscardPolicy():** //该拒绝策略为：队列满了,丢掉异常，不会抛出异常。
 
-![image-20200718215402026](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718215402026.png)
+![image-20200718215402026](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718215402026.png)
 
 **（4）new ThreadPoolExecutor.DiscardOldestPolicy()：**  //该拒绝策略为：队列满了，尝试去和最早的进程竞争，不会抛出异常
 
-![image-20200718215707893](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718215707893.png)
+![image-20200718215707893](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718215707893.png)
 
 
 
@@ -1947,13 +1946,13 @@ public ThreadPoolExecutor(int corePoolSize,  //核心线程池大小
 
 **1、CPU密集型：电脑的核数是几核就选择几；选择maximunPoolSize的大小**
 
-![image-20200718220112359](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718220112359.png)
+![image-20200718220112359](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718220112359.png)
 
 我们可以使用代码来来获取逻辑处理器数量。
 
 于是**cpu密集型**的写法如下：
 
-![image-20200718220314770](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718220314770.png)
+![image-20200718220314770](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718220314770.png)
 
 
 
@@ -1981,7 +1980,7 @@ public interface Runnable {
 //foreach()的参数也是一个函数式接口，消费者类的函数式接口
 ```
 
-![image-20200718221832138](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718221832138.png)
+![image-20200718221832138](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718221832138.png)
 
 函数型接口可以使用lambda表达式；
 
@@ -1989,7 +1988,7 @@ public interface Runnable {
 
 > Function函数型接口
 
-![image-20200718222044307](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718222044307.png)
+![image-20200718222044307](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718222044307.png)
 
 ```java
 /**
@@ -1997,7 +1996,7 @@ public interface Runnable {
  */
 public class Demo01 {
     public static void main(String[] args) {
-        Function\<String,String> function = (str) ->{return str;};
+        Function<String,String> function = (str) ->{return str;};
         System.out.println(function.apply("starasdas"));
     }
 }
@@ -2005,7 +2004,7 @@ public class Demo01 {
 
 > Predicate断定型接口
 
-![image-20200718222658252](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718222658252.png)
+![image-20200718222658252](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718222658252.png)
 
 ```java
 /**
@@ -2014,7 +2013,7 @@ public class Demo01 {
 public class Demo2 {
     public static void main(String[] args) {
         //判断字符串是否为空
-        Predicate\<String> predicate = (str)->{return str.isEmpty();};
+        Predicate<String> predicate = (str)->{return str.isEmpty();};
         System.out.println(predicate.test("11"));
         System.out.println(predicate.test(""));
     }
@@ -2027,7 +2026,7 @@ public class Demo2 {
 
 
 
-![image-20200718223309664](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718223309664.png)
+![image-20200718223309664](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718223309664.png)
 
 ```java
 /**
@@ -2035,7 +2034,7 @@ public class Demo2 {
  */
 public class Demo3 {
     public static void main(String[] args) {
-        Consumer\<String> consumer = (str)->{
+        Consumer<String> consumer = (str)->{
             System.out.println(str);
         };
         consumer.accept("abc");
@@ -2049,7 +2048,7 @@ public class Demo3 {
 
 > Supplier供给型接口
 
-![image-20200718223646956](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718223646956.png)
+![image-20200718223646956](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718223646956.png)
 
 ```java
 /**
@@ -2057,7 +2056,7 @@ public class Demo3 {
  */
 public class Demo4 {
     public static void main(String[] args) {
-        Supplier\<String> supplier = ()->{return "1024";};
+        Supplier<String> supplier = ()->{return "1024";};
         System.out.println(supplier.get());
     }
 }
@@ -2084,7 +2083,7 @@ public class Test {
         User user4 = new User(4,"d",24);
         User user5 = new User(5,"e",25);
         User user6 = new User(6,"f",26);
-        List\<User> list = Arrays.asList(user1, user2, user3, user4, user5, user6);
+        List<User> list = Arrays.asList(user1, user2, user3, user4, user5, user6);
 
         //计算交给流
         //链式编程！！！！
@@ -2111,7 +2110,7 @@ ForkJoin 在JDK1.7，并行执行任务！提高效率~。在大数据量速率�
 
 大数据中：**MapReduce 核心思想->把大任务拆分为小任务！**
 
-![image-20200718230010219](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718230010219.png)
+![image-20200718230010219](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718230010219.png)
 
 
 
@@ -2119,16 +2118,16 @@ ForkJoin 在JDK1.7，并行执行任务！提高效率~。在大数据量速率�
 
 实现原理是：**双端队列**！从上面和下面都可以去拿到任务进行执行！
 
-![image-20200718230259762](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718230259762.png)
+![image-20200718230259762](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718230259762.png)
 
 
 
 > 如何使用ForkJoin?
 
 - 1、通过**ForkJoinPool**来执行
-- 2、计算任务 **execute(ForkJoinTask\<?> task)**
+- 2、计算任务 **execute(ForkJoinTask<?> task)**
 
-![image-20200718231444762](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718231444762.png)
+![image-20200718231444762](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718231444762.png)
 
 - 3、计算类要去继承ForkJoinTask；
 
@@ -2139,7 +2138,7 @@ package com.ogj.forkjoin;
 
 import java.util.concurrent.RecursiveTask;
 
-public class ForkJoinDemo extends RecursiveTask\<Long> {
+public class ForkJoinDemo extends RecursiveTask<Long> {
 
     private long star;
     private long end;
@@ -2158,9 +2157,9 @@ public class ForkJoinDemo extends RecursiveTask\<Long> {
      */
     @Override
     protected Long compute() {
-        if((end-star)\<temp){
+        if((end-star)<temp){
             Long sum = 0L;
-            for (Long i = star; i \< end; i++) {
+            for (Long i = star; i < end; i++) {
                 sum+=i;
             }
 //            System.out.println(sum);
@@ -2204,7 +2203,7 @@ public class Test {
     public static void test1(){
         long star = System.currentTimeMillis();
         long sum = 0L;
-        for (long i = 1; i \< 20_0000_0000; i++) {
+        for (long i = 1; i < 20_0000_0000; i++) {
             sum+=i;
         }
         long end = System.currentTimeMillis();
@@ -2218,8 +2217,8 @@ public class Test {
     public static void test2() throws ExecutionException, InterruptedException {
         long star = System.currentTimeMillis();
         ForkJoinPool forkJoinPool = new ForkJoinPool();
-        ForkJoinTask\<Long> task = new ForkJoinDemo(0L, 20_0000_0000L);
-        ForkJoinTask\<Long> submit = forkJoinPool.submit(task);
+        ForkJoinTask<Long> task = new ForkJoinDemo(0L, 20_0000_0000L);
+        ForkJoinTask<Long> submit = forkJoinPool.submit(task);
         Long aLong = submit.get();
         System.out.println(aLong);
         long end = System.currentTimeMillis();
@@ -2241,13 +2240,15 @@ public class Test {
 }
 ```
 
-![image-20200718234047257](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718234047257.png)
+![image-20200718234047257](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718234047257.png)
 
 **.parallel().reduce(0, Long::sum)使用一个并行流去计算整个计算，提高效率。**
 
+![image-20200718234505626](C:\Users\ogj\AppData\Roaming\Typora\typora-user-images\image-20200718234505626.png)
+
 **reduce方法的优点：**
 
-![image-20200718234804521](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200718234804521.png)
+![image-20200718234804521](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718234804521.png)
 
 
 
@@ -2257,7 +2258,7 @@ public class Test {
 
 其实就是前端 --> 发送ajax异步请求给后端
 
-![image-20200719214245164](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200719214245164.png)
+![image-20200719214245164](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200719214245164.png)
 
 但是我们平时都使用**CompletableFuture**
 
@@ -2270,7 +2271,7 @@ public static void main(String[] args) throws ExecutionException, InterruptedExc
 
         System.out.println(System.currentTimeMillis());
         System.out.println("---------------------");
-        CompletableFuture\<Void> future = CompletableFuture.runAsync(()->{
+        CompletableFuture<Void> future = CompletableFuture.runAsync(()->{
             //发起一个异步任务
             try {
                 TimeUnit.SECONDS.sleep(2);
@@ -2290,7 +2291,7 @@ public static void main(String[] args) throws ExecutionException, InterruptedExc
 
 ```java
 //有返回值的异步回调
-CompletableFuture\<Integer> completableFuture=CompletableFuture.supplyAsync(()->{
+CompletableFuture<Integer> completableFuture=CompletableFuture.supplyAsync(()->{
     System.out.println(Thread.currentThread().getName());
     try {
         TimeUnit.SECONDS.sleep(2);
@@ -2362,9 +2363,9 @@ Volatile 是 Java 虚拟机提供 **轻量级的同步机制**
 - **lock（锁定）：**作用于主内存的变量，把一个变量标识为线程独占状态；
 - **unlock（解锁）：**作用于主内存的变量，它把一个处于锁定状态的变量释放出来，释放后的变量才可以被其他线程锁定；
 
-![image-20200727122005506](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727122005506.png)
+![image-20200727122005506](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727122005506.png)
 
-![image-20200727122204321](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727122204321.png)
+![image-20200727122204321](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727122204321.png)
 
 **JMM对这8种操作给了相应的规定**：
 
@@ -2377,7 +2378,7 @@ Volatile 是 Java 虚拟机提供 **轻量级的同步机制**
 - 如果一个变量没有被lock，就不能对其进行unlock操作。也不能unlock一个被其他线程锁住的变量
 - 对一个变量进行unlock操作之前，必须把此变量同步回主内存
 
-![image-20200727125122336](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727125122336.png)
+![image-20200727125122336](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727125122336.png)
 
 遇到问题：**程序不知道主存中的值已经被修改过了！；**
 
@@ -2430,7 +2431,7 @@ public class JMMDemo01 {
 ```java
 /**
  * 不保证原子性
- * number \<=2w
+ * number <=2w
  * 
  */
 public class VDemo02 {
@@ -2446,9 +2447,9 @@ public class VDemo02 {
     public static void main(String[] args) {
         //理论上number  === 20000
 
-        for (int i = 1; i \<= 20; i++) {
+        for (int i = 1; i <= 20; i++) {
             new Thread(()->{
-                for (int j = 1; j \<= 1000 ; j++) {
+                for (int j = 1; j <= 1000 ; j++) {
                     add();
                 }
             }).start();
@@ -2467,11 +2468,11 @@ public class VDemo02 {
 
 
 
-![image-20200727131011185](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727131011185.png)
+![image-20200727131011185](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727131011185.png)
 
 解决方法：使用JUC下的原子包下的class；
 
-![image-20200727131103821](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727131103821.png)
+![image-20200727131103821](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727131103821.png)
 
 代码如下：
 
@@ -2488,9 +2489,9 @@ public class VDemo02 {
     public static void main(String[] args) {
         //理论上number  === 20000
 
-        for (int i = 1; i \<= 20; i++) {
+        for (int i = 1; i <= 20; i++) {
             new Thread(()->{
-                for (int j = 1; j \<= 1000 ; j++) {
+                for (int j = 1; j <= 1000 ; j++) {
                     add();
                 }
             }).start();
@@ -2564,7 +2565,7 @@ y=x*x;   //4
 
 2、可以保证某些变量的内存可见性（利用这些特性，就可以保证volatile实现的可见性）
 
-![image-20200727133600857](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727133600857.png)
+![image-20200727133600857](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727133600857.png)
 
 
 
@@ -2663,7 +2664,7 @@ public class LazyMan {
 //        LazyMan instance = LazyMan.getInstance();
         Field key = LazyMan.class.getDeclaredField("key");
         key.setAccessible(true);
-        Constructor\<LazyMan> declaredConstructor = LazyMan.class.getDeclaredConstructor(null);
+        Constructor<LazyMan> declaredConstructor = LazyMan.class.getDeclaredConstructor(null);
         declaredConstructor.setAccessible(true); //无视了私有的构造器
         LazyMan lazyMan1 = declaredConstructor.newInstance();
         key.set(lazyMan1,false);
@@ -2713,9 +2714,9 @@ public enum EnumSingle {
 class Test{
     public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         EnumSingle instance1 = EnumSingle.INSTANCE;
-        Constructor\<EnumSingle> declaredConstructor = EnumSingle.class.getDeclaredConstructor(String.class,int.class);
+        Constructor<EnumSingle> declaredConstructor = EnumSingle.class.getDeclaredConstructor(String.class,int.class);
         declaredConstructor.setAccessible(true);
-        //java.lang.NoSuchMethodException: com.ogj.single.EnumSingle.\<init>()
+        //java.lang.NoSuchMethodException: com.ogj.single.EnumSingle.<init>()
 
         EnumSingle instance2 = declaredConstructor.newInstance();
         System.out.println(instance1);
@@ -2726,15 +2727,15 @@ class Test{
 
 使用枚举，我们就可以防止反射破坏了。
 
-![image-20200727142407100](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727142407100.png)
+![image-20200727142407100](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727142407100.png)
 
 枚举类型使用JAD最终反编译后源码：
 
 如果我们看idea 的文件：会发现idea骗了我们，居然告诉我们是有有参构造的，我们使用jad进行反编译。
 
-![image-20200727142044342](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727142044342.png)
+![image-20200727142044342](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727142044342.png)
 
-![image-20200727142000680](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727142000680.png)
+![image-20200727142000680](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727142000680.png)
 
 ```java
 public final class EnumSingle extends Enum
@@ -2803,15 +2804,15 @@ public class casDemo {
 
 
 
-![image-20200727153931186](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727153931186.png)
+![image-20200727153931186](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727153931186.png)
 
 
 
 > Unsafe类
 
-![image-20200727153538208](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727153538208.png)
+![image-20200727153538208](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727153538208.png)
 
-![image-20200727153836929](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727153836929.png)
+![image-20200727153836929](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727153836929.png)
 
 **总结：**
 
@@ -2827,6 +2828,7 @@ CAS：比较当前工作内存中的值 和 主内存中的值，如果这个值
 
 > CAS：ABA问题？(狸猫换太子)
 
+![image-20200727154814198](C:\Users\ogj\AppData\Roaming\Typora\typora-user-images\image-20200727154814198.png)
 
 线程1：期望值是1，要变成2；
 
@@ -2872,15 +2874,15 @@ public class casDemo {
 
 **Integer 使用了对象缓存机制，默认范围是-128~127，推荐使用静态工厂方法valueOf获取对象实例，而不是new，因为valueOf使用缓存，而new一定会创建新的对象分配新的内存空间。**
 
-![image-20200727165850897](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727165850897.png)
+![image-20200727165850897](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727165850897.png)
 
 所以如果遇到，使用大于128的时候，**使用原子引用的时候，如果超过了这个值，那么就不会进行版本上升！**
 
-![image-20200727170215325](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727170215325.png)
+![image-20200727170215325](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727170215325.png)
 
 那么如果我们使用小于128的时候：
 
-![image-20200727170350647](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727170350647.png)
+![image-20200727170350647](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727170350647.png)
 
 正常业务操作中，我们一般使用的是一个个对象，一般情况不会遇到这种情况。
 
@@ -2926,7 +2928,7 @@ public ReentrantLock(boolean fair) {
 
 可重入锁(递归锁)
 
-![image-20200727171352076](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727171352076.png)
+![image-20200727171352076](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727171352076.png)
 
 > Synchronized锁
 
@@ -3026,7 +3028,7 @@ public class SpinlockDemo {
 
     //int 0
     //thread null
-    AtomicReference\<Thread> atomicReference=new AtomicReference\\<>();
+    AtomicReference<Thread> atomicReference=new AtomicReference<>();
 
     //加锁
     public void myLock(){
@@ -3092,7 +3094,7 @@ public class TestSpinLock {
 
 **t2进程必须等待t1进程Unlock后，才能Unlock，在这之前进行自旋等待。。。。**
 
-![image-20200727185204974](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727185204974.png)
+![image-20200727185204974](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727185204974.png)
 
 
 
@@ -3102,7 +3104,7 @@ public class TestSpinLock {
 
 > 死锁是什么？
 
-\<img src="https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727191252276.png" alt="image-20200727191252276" style="zoom:150%;" />
+<img src="https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727191252276.png" alt="image-20200727191252276" style="zoom:150%;" />
 
 死锁测试，怎么排除死锁：
 
@@ -3154,15 +3156,15 @@ class MyThread implements Runnable{
 
 命令：`jps -l`
 
-![image-20200727192321614](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727192321614.png)
+![image-20200727192321614](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727192321614.png)
 
 **2、使用`jstack` 进程进程号 找到死锁信息**
 
-![image-20200727192602880](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727192602880.png)
+![image-20200727192602880](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727192602880.png)
 
 **一般情况信息在最后：**
 
-![image-20200727192727234](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200727192727234.png)
+![image-20200727192727234](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727192727234.png)
 
 **面试，工作中！排查问题！**
 
@@ -3194,7 +3196,7 @@ ThreadLocal意思是对于每个线程都有自己的变量，而且这个变量
 ```java
 public class TestThreadLocal {
     public static void main(String[] args) {
-        ThreadLocal\<String> local = new ThreadLocal\\<>();
+        ThreadLocal<String> local = new ThreadLocal<>();
         //新建一个随机数类
         Random random=new Random();
         IntStream.range(0,5).forEach(a->new Thread(()->{
@@ -3236,11 +3238,11 @@ public void set(T value) {
 
 ```java
 static class ThreadLocalMap {
-    static class Entry extends WeakReference\<ThreadLocal\<?>> {
+    static class Entry extends WeakReference<ThreadLocal<?>> {
             /** The value associated with this ThreadLocal. */
             Object value;
 
-            Entry(ThreadLocal\<?> k, Object v) {
+            Entry(ThreadLocal<?> k, Object v) {
                 super(k);
                 value = v;
             }
@@ -3315,7 +3317,7 @@ public void remove() {
 
 我们看一下ThreadLocal、Thread、CurrentThread的联系：
 
-![image-20200803165858388](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200803165858388.png)
+![image-20200803165858388](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200803165858388.png)
 
 - Thread中有一个map，那就是ThreadLocalMap；
 - ThreadLocalMap的key是ThreadLocal，值是我们set进去的；
@@ -3465,7 +3467,7 @@ Reflection 可以在运行时加载、探知、使用编译期间完全未知的
 
 **Method 源码方法：**
 
-![image-20200804124422617](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200804124422617.png)
+![image-20200804124422617](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200804124422617.png)
 
 
 
@@ -3510,7 +3512,7 @@ class.getConstructor(参数1，参数2，参数3);
 如果我们不进行暴力破解，就会出现无法反射使用函数 异常：
 
 ```java
-Class\<? extends Apple> aClass = apple.getClass();
+Class<? extends Apple> aClass = apple.getClass();
 Apple apple1 = aClass.newInstance();
 apple1.setPrice(5.0);
 apple1.setName("苹果2");
@@ -3556,7 +3558,7 @@ System.out.println(declaredField.getGenericType()); //获取泛型类型
 
 AQS基本框架如下图所示：
 
-![image-20200826103926005](https://image-bk.oss-cn-shanghai.aliyuncs.com/docs/imagesimage-20200826103926005.png)
+![image-20200826103926005](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200826103926005.png)
 
 AQS维护了一个volatile语义(支持多线程下的可见性)的共享资源变量state和一个FIFO线程等待队列(多线程竞争state被阻塞时会进入此队列)。
 
@@ -3931,7 +3933,7 @@ private void unparkSuccessor(Node node) {
     //获取当前节点的ws值
     int ws = node.waitStatus;
     //如果小于0则置为0
-    if (ws \< 0)
+    if (ws < 0)
         compareAndSetWaitStatus(node, ws, 0);
 
    
@@ -3941,7 +3943,7 @@ private void unparkSuccessor(Node node) {
     if (s == null || s.waitStatus > 0) {
         s = null;
         for (Node t = tail; t != null && t != node; t = t.prev)
-            if (t.waitStatus \<= 0)
+            if (t.waitStatus <= 0)
                 s = t;
     }
     // 如果后驱节点非null，则唤醒该后驱节点持有的线程
@@ -3960,7 +3962,7 @@ private void unparkSuccessor(Node node) {
 
 ```java
 public final void acquireShared(int arg) {
-    if (tryAcquireShared(arg) \< 0)
+    if (tryAcquireShared(arg) < 0)
         doAcquireShared(arg);
 }
 ```
@@ -4026,65 +4028,65 @@ private void doAcquireShared(int arg) {
 
 ```java
 private void setHeadAndPropagate(Node node, int propagate) {
-    Node h = head; // Record old head for check below
-    setHead(node);
-    /*
-     * Try to signal next queued node if:
-     *   Propagation was indicated by caller,
-     *     or was recorded (as h.waitStatus either before
-     *     or after setHead) by a previous operation
-     *     (note: this uses sign-check of waitStatus because
-     *      PROPAGATE status may transition to SIGNAL.)
-     * and
-     *   The next node is waiting in shared mode,
-     *     or we don't know, because it appears null
-     *
-     * The conservatism in both of these checks may cause
-     * unnecessary wake-ups, but only when there are multiple
-     * racing acquires/releases, so most need signals now or soon
-     * anyway.
-     */
-    if (propagate > 0 || h == null || h.waitStatus \< 0 ||
-        (h = head) == null || h.waitStatus \< 0) {
+        Node h = head; // Record old head for check below
+        setHead(node);
+        /*
+         * Try to signal next queued node if:
+         *   Propagation was indicated by caller,
+         *     or was recorded (as h.waitStatus either before
+         *     or after setHead) by a previous operation
+         *     (note: this uses sign-check of waitStatus because
+         *      PROPAGATE status may transition to SIGNAL.)
+         * and
+         *   The next node is waiting in shared mode,
+         *     or we don't know, because it appears null
+         *
+         * The conservatism in both of these checks may cause
+         * unnecessary wake-ups, but only when there are multiple
+         * racing acquires/releases, so most need signals now or soon
+         * anyway.
+         */
+        if (propagate > 0 || h == null || h.waitStatus < 0 ||
+        (h = head) == null || h.waitStatus < 0) {
         Node s = node.next;
         if (s == null || s.isShared())
-            doReleaseShared();
-    }
-}
+        doReleaseShared();
+        }
+        }
 ```
 
 其实方法是**doReleaseShared**：
 
 ```java
 private void doReleaseShared() {
-    /*
-     * Ensure that a release propagates, even if there are other
-     * in-progress acquires/releases.  This proceeds in the usual
-     * way of trying to unparkSuccessor of head if it needs
-     * signal. But if it does not, status is set to PROPAGATE to
-     * ensure that upon release, propagation continues.
-     * Additionally, we must loop in case a new node is added
-     * while we are doing this. Also, unlike other uses of
-     * unparkSuccessor, we need to know if CAS to reset status
-     * fails, if so rechecking.
-     */
-    for (;;) {
+        /*
+         * Ensure that a release propagates, even if there are other
+         * in-progress acquires/releases.  This proceeds in the usual
+         * way of trying to unparkSuccessor of head if it needs
+         * signal. But if it does not, status is set to PROPAGATE to
+         * ensure that upon release, propagation continues.
+         * Additionally, we must loop in case a new node is added
+         * while we are doing this. Also, unlike other uses of
+         * unparkSuccessor, we need to know if CAS to reset status
+         * fails, if so rechecking.
+         */
+        for (;;) {
         Node h = head;
         if (h != null && h != tail) {
-            int ws = h.waitStatus;
-            if (ws == Node.SIGNAL) {
-                if (!compareAndSetWaitStatus(h, Node.SIGNAL, 0))
-                    continue;            // loop to recheck cases
-                unparkSuccessor(h);
-            }
-            else if (ws == 0 &&
-                     !compareAndSetWaitStatus(h, 0, Node.PROPAGATE))
-                continue;                // loop on failed CAS
+        int ws = h.waitStatus;
+        if (ws == Node.SIGNAL) {
+        if (!compareAndSetWaitStatus(h, Node.SIGNAL, 0))
+        continue;            // loop to recheck cases
+        unparkSuccessor(h);
+        }
+        else if (ws == 0 &&
+        !compareAndSetWaitStatus(h, 0, Node.PROPAGATE))
+        continue;                // loop on failed CAS
         }
         if (h == head)                   // loop if head changed
-            break;
-    }
-}
+        break;
+        }
+        }
 ```
 
 
@@ -4093,14 +4095,14 @@ private void doReleaseShared() {
 
 ```java
 public final boolean releaseShared(int arg) {
-    //尝试释放资源
-    if (tryReleaseShared(arg)) {
+        //尝试释放资源
+        if (tryReleaseShared(arg)) {
         //唤醒后继节点的线程
         doReleaseShared();
         return true;
-    }
-    return false;
-}
+        }
+        return false;
+        }
 ```
 
 同样 tryReleaseShared(arg) 是由继承AQS的自定义同步器来具体实现的。
