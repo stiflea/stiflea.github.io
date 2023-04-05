@@ -137,19 +137,19 @@ public enum State {
          * Thread state for a waiting thread.
          * A thread is in the waiting state due to calling one of the
          * following methods:
-         * <ul>
-         *   <li>{@link Object#wait() Object.wait} with no timeout</li>
-         *   <li>{@link #join() Thread.join} with no timeout</li>
-         *   <li>{@link LockSupport#park() LockSupport.park}</li>
-         * </ul>
+         * \<ul>
+         *   \<li>{@link Object#wait() Object.wait} with no timeout\</li>
+         *   \<li>{@link #join() Thread.join} with no timeout\</li>
+         *   \<li>{@link LockSupport#park() LockSupport.park}\</li>
+         * \</ul>
          *
-         * <p>A thread in the waiting state is waiting for another thread to
+         * \<p>A thread in the waiting state is waiting for another thread to
          * perform a particular action.
          *
-         * For example, a thread that has called <tt>Object.wait()</tt>
+         * For example, a thread that has called \<tt>Object.wait()\</tt>
          * on an object is waiting for another thread to call
-         * <tt>Object.notify()</tt> or <tt>Object.notifyAll()</tt> on
-         * that object. A thread that has called <tt>Thread.join()</tt>
+         * \<tt>Object.notify()\</tt> or \<tt>Object.notifyAll()\</tt> on
+         * that object. A thread that has called \<tt>Thread.join()\</tt>
          * is waiting for a specified thread to terminate.
          */
     	//等待
@@ -159,13 +159,13 @@ public enum State {
          * Thread state for a waiting thread with a specified waiting time.
          * A thread is in the timed waiting state due to calling one of
          * the following methods with a specified positive waiting time:
-         * <ul>
-         *   <li>{@link #sleep Thread.sleep}</li>
-         *   <li>{@link Object#wait(long) Object.wait} with timeout</li>
-         *   <li>{@link #join(long) Thread.join} with timeout</li>
-         *   <li>{@link LockSupport#parkNanos LockSupport.parkNanos}</li>
-         *   <li>{@link LockSupport#parkUntil LockSupport.parkUntil}</li>
-         * </ul>
+         * \<ul>
+         *   \<li>{@link #sleep Thread.sleep}\</li>
+         *   \<li>{@link Object#wait(long) Object.wait} with timeout\</li>
+         *   \<li>{@link #join(long) Thread.join} with timeout\</li>
+         *   \<li>{@link LockSupport#parkNanos LockSupport.parkNanos}\</li>
+         *   \<li>{@link LockSupport#parkUntil LockSupport.parkUntil}\</li>
+         * \</ul>
          */
     	//超时等待
         TIMED_WAITING,
@@ -233,17 +233,17 @@ public class SaleTicketDemo01 {
 
         //@FunctionalInterface 函数式接口 jdk1.8之后 lambda表达式
         new Thread(()->{
-            for(int i=0;i<40;i++){
+            for(int i=0;i\<40;i++){
                 ticket.sale();
             }
         },"A").start();
         new Thread(()->{
-            for(int i=0;i<40;i++){
+            for(int i=0;i\<40;i++){
                 ticket.sale();
             }
         },"B").start();
         new Thread(()->{
-            for(int i=0;i<40;i++){
+            for(int i=0;i\<40;i++){
                 ticket.sale();
             }
         },"C").start();
@@ -291,9 +291,9 @@ public class SaleTicketDemo02 {
         //多线程操作
         //并发：多线程操作同一个资源类，把资源类丢入线程
         Ticket2 ticket = new Ticket2();
-        new Thread(()->{for(int i=0;i<40;i++) ticket.sale(); },"A").start();
-        new Thread(()->{for(int i=0;i<40;i++) ticket.sale(); },"B").start();
-        new Thread(()->{for(int i=0;i<40;i++) ticket.sale(); },"C").start();
+        new Thread(()->{for(int i=0;i\<40;i++) ticket.sale(); },"A").start();
+        new Thread(()->{for(int i=0;i\<40;i++) ticket.sale(); },"B").start();
+        new Thread(()->{for(int i=0;i\<40;i++) ticket.sale(); },"C").start();
     }
 }
 
@@ -361,7 +361,7 @@ public class A {
     public static void main(String[] args) {
         Data data = new Data();
 
-        new Thread(()->{for(int i=0;i<10;i++) {
+        new Thread(()->{for(int i=0;i\<10;i++) {
             try {
                 data.increment();
             } catch (InterruptedException e) {
@@ -369,7 +369,7 @@ public class A {
             }
         }
         },"A").start();
-        new Thread(()->{for(int i=0;i<10;i++) {
+        new Thread(()->{for(int i=0;i\<10;i++) {
             try {
                 data.decrement();
             } catch (InterruptedException e) {
@@ -436,18 +436,18 @@ public class B {
     public static void main(String[] args) {
         Data2 data = new Data2();
 
-        new Thread(()->{for(int i=0;i<10;i++) {
+        new Thread(()->{for(int i=0;i\<10;i++) {
             data.increment();
         }
         },"A").start();
-        new Thread(()->{for(int i=0;i<10;i++) {
+        new Thread(()->{for(int i=0;i\<10;i++) {
             data.decrement();
         }},"B").start();
-        new Thread(()->{for(int i=0;i<10;i++) {
+        new Thread(()->{for(int i=0;i\<10;i++) {
             data.increment();
         }
         },"C").start();
-        new Thread(()->{for(int i=0;i<10;i++) {
+        new Thread(()->{for(int i=0;i\<10;i++) {
             data.decrement();
         }
         },"D").start();
@@ -520,17 +520,17 @@ public class C {
     public static void main(String[] args) {
         Data3 data3 = new Data3();
         new Thread(()->{
-            for(int i=0;i<10;i++){
+            for(int i=0;i\<10;i++){
                 data3.printA();
             }
         },"A").start();
         new Thread(()->{
-            for(int i=0;i<10;i++){
+            for(int i=0;i\<10;i++){
                 data3.printB();
             }
         },"B").start();
         new Thread(()->{
-            for(int i=0;i<10;i++){
+            for(int i=0;i\<10;i++){
                 data3.printC();
             }
         },"C").start();
@@ -715,9 +715,9 @@ class Data3{
 public class ListTest {
     public static void main(String[] args) {
 
-        List<Object> arrayList = new ArrayList<>();
+        List\<Object> arrayList = new ArrayList\<>();
 
-        for(int i=1;i<=10;i++){
+        for(int i=1;i\<=10;i++){
             new Thread(()->{
                 arrayList.add(UUID.randomUUID().toString().substring(0,5));
                 System.out.println(arrayList);
@@ -740,15 +740,15 @@ public class ListTest {
 
 ![image-20200714223347796](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200714223347796.png)
 
-**2、使用Collections.synchronizedList(new ArrayList<>());**
+**2、使用Collections.synchronizedList(new ArrayList\<>());**
 
 ```java
 public class ListTest {
     public static void main(String[] args) {
 
-        List<Object> arrayList = Collections.synchronizedList(new ArrayList<>());
+        List\<Object> arrayList = Collections.synchronizedList(new ArrayList\<>());
 
-        for(int i=1;i<=10;i++){
+        for(int i=1;i\<=10;i++){
             new Thread(()->{
                 arrayList.add(UUID.randomUUID().toString().substring(0,5));
                 System.out.println(arrayList);
@@ -759,15 +759,15 @@ public class ListTest {
 }
 ```
 
-**3、使用JUC中的包：List<Object> arrayList = new CopyOnWriteArrayList<>();**
+**3、使用JUC中的包：List\<Object> arrayList = new CopyOnWriteArrayList\<>();**
 
 ```java
 public class ListTest {
     public static void main(String[] args) {
 
-        List<Object> arrayList = new CopyOnWriteArrayList<>();
+        List\<Object> arrayList = new CopyOnWriteArrayList\<>();
 
-        for(int i=1;i<=10;i++){
+        for(int i=1;i\<=10;i++){
             new Thread(()->{
                 arrayList.add(UUID.randomUUID().toString().substring(0,5));
                 System.out.println(arrayList);
@@ -823,7 +823,7 @@ private boolean addIfAbsent(E e, Object[] snapshot) {
             if (snapshot != current) {
                 // Optimize for lost race to another addXXX operation
                 int common = Math.min(snapshot.length, len);
-                for (int i = 0; i < common; i++)
+                for (int i = 0; i \< common; i++)
                     if (current[i] != snapshot[i] && eq(e, current[i]))
                         return false;
                 if (indexOf(e, current, common, len) >= 0)
@@ -846,9 +846,9 @@ private boolean addIfAbsent(E e, Object[] snapshot) {
 // 解决方案：
 public class SetTest {
     public static void main(String[] args) {
-//        Set<String> hashSet = Collections.synchronizedSet(new HashSet<>()); //解决方案1
-        Set<String> hashSet = new CopyOnWriteArraySet<>();//解决方案2
-        for (int i = 1; i < 100; i++) {
+//        Set\<String> hashSet = Collections.synchronizedSet(new HashSet\<>()); //解决方案1
+        Set\<String> hashSet = new CopyOnWriteArraySet\<>();//解决方案2
+        for (int i = 1; i \< 100; i++) {
             new Thread(()->{
                 hashSet.add(UUID.randomUUID().toString().substring(0,5));
                 System.out.println(hashSet);
@@ -864,7 +864,7 @@ hashSet底层就是一个**HashMap**；
 
 ```java
 public HashSet() {
-        map = new HashMap<>();
+        map = new HashMap\<>();
 }
 
 //add 本质其实就是一个map的key，map的key是无法重复的，所以使用的就是map存储
@@ -887,8 +887,8 @@ private static final Object PRESENT = new Object();
 
 ```
 //map 是这样用的吗？  不是，工作中不使用这个
-//默认等价什么？ new HashMap<>(16,0.75);
-Map<String, String> map = new HashMap<>();
+//默认等价什么？ new HashMap\<>(16,0.75);
+Map\<String, String> map = new HashMap\<>();
 //加载因子、初始化容量
 ```
 
@@ -901,10 +901,10 @@ Map<String, String> map = new HashMap<>();
 ```java
 public static void main(String[] args) {
         //map 是这样用的吗？  不是，工作中不使用这个
-        //默认等价什么？ new HashMap<>(16,0.75);
-        Map<String, String> map = new HashMap<>();
+        //默认等价什么？ new HashMap\<>(16,0.75);
+        Map\<String, String> map = new HashMap\<>();
         //加载因子、初始化容量
-        for (int i = 1; i < 100; i++) {
+        for (int i = 1; i \< 100; i++) {
             new Thread(()->{
                 map.put(Thread.currentThread().getName(),UUID.randomUUID().toString().substring(0,5));
                 System.out.println(map);
@@ -917,7 +917,7 @@ public static void main(String[] args) {
 
 **解决方案：**
 
-- **使用Collections.synchronizedMap(new HashMap<>());处理**；
+- **使用Collections.synchronizedMap(new HashMap\<>());处理**；
 - **使用ConcurrentHashMap进行并发处理**
 
 #### TODO:研究ConcurrentHashMap底层原理：
@@ -971,14 +971,14 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
         if (key == null || value == null) throw new NullPointerException();
         int hash = spread(key.hashCode());
         int binCount = 0;
-        for (Node<K,V>[] tab = table;;) {
-            Node<K,V> f; int n, i, fh;
+        for (Node\<K,V>[] tab = table;;) {
+            Node\<K,V> f; int n, i, fh;
             if (tab == null || (n = tab.length) == 0)  //判断是否未初始化，如果没有初始化 则进行初始化
                 tab = initTable();
             else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {  //初始化完毕后  循环回来  i=(n-1)&hash 为索引值 查找这个元素，
                 //如果这个值为null  那么就是插入这个值 使用 CAS 进行插入
                 if (casTabAt(tab, i, null,
-                             new Node<K,V>(hash, key, value, null)))  //进行add操作，使用CAS 保证线程同步安全
+                             new Node\<K,V>(hash, key, value, null)))  //进行add操作，使用CAS 保证线程同步安全
                     break;                   // no lock when adding to empty bin
                 	//插入成功后 直接break 跳出循环， 然后使用count查看是否需要扩容
             }
@@ -990,7 +990,7 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
                     if (tabAt(tab, i) == f) { //查看值是否被修改了  没有被修改 才继续插入
                         if (fh >= 0) {
                             binCount = 1; //记录当前的节点数目
-                            for (Node<K,V> e = f;; ++binCount) { 
+                            for (Node\<K,V> e = f;; ++binCount) { 
                                 K ek;
                                 if (e.hash == hash &&
                                     ((ek = e.key) == key ||
@@ -1000,18 +1000,18 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
                                         e.val = value;
                                     break;
                                 }
-                                Node<K,V> pred = e;
+                                Node\<K,V> pred = e;
                                 if ((e = e.next) == null) {
-                                    pred.next = new Node<K,V>(hash, key,
+                                    pred.next = new Node\<K,V>(hash, key,
                                                               value, null); //链表插入
                                     break;
                                 }
                             }
                         }
                         else if (f instanceof TreeBin) {
-                            Node<K,V> p;
+                            Node\<K,V> p;
                             binCount = 2;
-                            if ((p = ((TreeBin<K,V>)f).putTreeVal(hash, key,
+                            if ((p = ((TreeBin\<K,V>)f).putTreeVal(hash, key,
                                                            value)) != null) {
                                 oldVal = p.val;
                                 if (!onlyIfAbsent)
@@ -1037,13 +1037,13 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
      * 保证拿到最新的数据
      * @param tab
      * @param i
-     * @param <K>
-     * @param <V>
+     * @param \<K>
+     * @param \<V>
      * @return
      */
     @SuppressWarnings("unchecked")
-    static final <K,V> Node<K,V> tabAt(Node<K,V>[] tab, int i) {
-        return (Node<K,V>)U.getObjectVolatile(tab, ((long)i << ASHIFT) + ABASE);
+    static final \<K,V> Node\<K,V> tabAt(Node\<K,V>[] tab, int i) {
+        return (Node\<K,V>)U.getObjectVolatile(tab, ((long)i \<\< ASHIFT) + ABASE);
     }
 
 /**
@@ -1054,13 +1054,13 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
      * @param i 下标
      * @param c  old value
      * @param v  new value
-     * @param <K>
-     * @param <V>
+     * @param \<K>
+     * @param \<V>
      * @return
      */
-    static final <K,V> boolean casTabAt(Node<K,V>[] tab, int i,
-                                        Node<K,V> c, Node<K,V> v) {
-        return U.compareAndSwapObject(tab, ((long)i << ASHIFT) + ABASE, c, v);
+    static final \<K,V> boolean casTabAt(Node\<K,V>[] tab, int i,
+                                        Node\<K,V> c, Node\<K,V> v) {
+        return U.compareAndSwapObject(tab, ((long)i \<\< ASHIFT) + ABASE, c, v);
     }
 
     /**
@@ -1068,11 +1068,11 @@ final V putVal(K key, V value, boolean onlyIfAbsent) {
      * @param tab
      * @param i
      * @param v
-     * @param <K>
-     * @param <V>
+     * @param \<K>
+     * @param \<V>
      */
-    static final <K,V> void setTabAt(Node<K,V>[] tab, int i, Node<K,V> v) {
-        U.putObjectVolatile(tab, ((long)i << ASHIFT) + ABASE, v);
+    static final \<K,V> void setTabAt(Node\<K,V>[] tab, int i, Node\<K,V> v) {
+        U.putObjectVolatile(tab, ((long)i \<\< ASHIFT) + ABASE, v);
     }
 ```
 
@@ -1088,33 +1088,33 @@ private final void addCount(long x, int check) {
             !U.compareAndSwapLong(this, BASECOUNT, b = baseCount, s = b + x)) {
             CounterCell a; long v; int m;
             boolean uncontended = true;
-            if (as == null || (m = as.length - 1) < 0 ||
+            if (as == null || (m = as.length - 1) \< 0 ||
                 (a = as[ThreadLocalRandom.getProbe() & m]) == null ||
                 !(uncontended =
                   U.compareAndSwapLong(a, CELLVALUE, v = a.value, v + x))) {
                 fullAddCount(x, uncontended);
                 return;
             }
-            if (check <= 1)
+            if (check \<= 1)
                 return;
             s = sumCount();
         }
         if (check >= 0) {
-            Node<K,V>[] tab, nt; int n, sc;
+            Node\<K,V>[] tab, nt; int n, sc;
             while (s >= (long)(sc = sizeCtl) && (tab = table) != null &&
-                   (n = tab.length) < MAXIMUM_CAPACITY) {
+                   (n = tab.length) \< MAXIMUM_CAPACITY) {
                 int rs = resizeStamp(n);
-                if (sc < 0) {  //这种情况代表 有其他线程正在扩容
+                if (sc \< 0) {  //这种情况代表 有其他线程正在扩容
                     if ((sc >>> RESIZE_STAMP_SHIFT) != rs || sc == rs + 1 ||
                         sc == rs + MAX_RESIZERS || (nt = nextTable) == null ||
-                        transferIndex <= 0)
+                        transferIndex \<= 0)
                         break;
                     if (U.compareAndSwapInt(this, SIZECTL, sc, sc + 1))  // 通过以上五个条件 尝试进行扩容
                         transfer(tab, nt);
                 }
                 //试着让自己成为第一个执行transfer任务的线程
                 else if (U.compareAndSwapInt(this, SIZECTL, sc,
-                                             (rs << RESIZE_STAMP_SHIFT) + 2))
+                                             (rs \<\< RESIZE_STAMP_SHIFT) + 2))
                     transfer(tab, null);
                 s = sumCount(); // 重新计数，判断是否需要开启下一轮扩容
             }
@@ -1132,7 +1132,7 @@ private final void addCount(long x, int check) {
 ```java
 在这个方法中：
 使用移位巧妙的避免了乘法和减法的出现：
-sizeCtl = (n << 1) - (n >>> 1); // 32 - 8  24
+sizeCtl = (n \<\< 1) - (n >>> 1); // 32 - 8  24
 ```
 
 
@@ -1154,7 +1154,7 @@ sizeCtl = (n << 1) - (n >>> 1); // 32 - 8  24
 ```java
 public class CallableTest {
     public static void main(String[] args) {
-        for (int i = 1; i < 10; i++) {
+        for (int i = 1; i \< 10; i++) {
             new Thread(new MyThread()).start();
         }
     }
@@ -1173,7 +1173,7 @@ class MyThread implements Runnable{
 
 ![image-20200715143833801](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200715143833801.png)
 
-Calleable<T> 泛型T就是call运行方法的返回值类型；
+Calleable\<T> 泛型T就是call运行方法的返回值类型；
 
 但是如何使用呢？
 
@@ -1202,12 +1202,12 @@ FutureTask中可以接受Callable参数；
 ```java
 public class CallableTest {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        for (int i = 1; i < 10; i++) {
+        for (int i = 1; i \< 10; i++) {
 //            new Thread(new Runnable()).start();
-//            new Thread(new FutureTask<>( Callable)).start();
+//            new Thread(new FutureTask\<>( Callable)).start();
             MyThread thread= new MyThread();
             //适配类：FutureTask
-            FutureTask<String> futureTask = new FutureTask<>(thread);
+            FutureTask\<String> futureTask = new FutureTask\<>(thread);
             //放入Thread使用
             new Thread(futureTask,String.valueOf(i)).start();
             //获取返回值
@@ -1217,7 +1217,7 @@ public class CallableTest {
     }
 }
 
-class MyThread implements Callable<String> {
+class MyThread implements Callable\<String> {
 
     @Override
     public String call() throws Exception {
@@ -1251,7 +1251,7 @@ public class CountDownLatchDemo {
         //总数是6
         CountDownLatch countDownLatch = new CountDownLatch(6);
 
-        for (int i = 1; i <= 6 ; i++) {
+        for (int i = 1; i \<= 6 ; i++) {
             new Thread(()->{
                 System.out.println(Thread.currentThread().getName()+" Go out");
                 countDownLatch.countDown(); //每个线程都数量-1
@@ -1290,7 +1290,7 @@ public class CyclicBarrierDemo {
             System.out.println("召唤神龙~");
         });
 
-        for (int i = 1; i <= 7; i++) {
+        for (int i = 1; i \<= 7; i++) {
             //子线程
             int finalI = i;
             new Thread(()->{
@@ -1330,7 +1330,7 @@ public class SemaphoreDemo {
     public static void main(String[] args) {
         //停车位为3个
         Semaphore semaphore = new Semaphore(3);
-        for (int i = 1; i <= 6; i++) {
+        for (int i = 1; i \<= 6; i++) {
             int finalI = i;
             new Thread(()->{
                 try {
@@ -1386,14 +1386,14 @@ public class ReadWriteLockDemo {
     public static void main(String[] args) {
         MyCache_ReadWriteLock mycache = new MyCache_ReadWriteLock();
         //开启5个线程 写入数据
-        for (int i = 1; i <=5 ; i++) {
+        for (int i = 1; i \<=5 ; i++) {
             int finalI = i;
             new Thread(()->{
                 mycache.put(String.valueOf(finalI),String.valueOf(finalI));
             }).start();
         }
         //开启10个线程去读取数据
-        for (int i = 1; i <=10 ; i++) {
+        for (int i = 1; i \<=10 ; i++) {
             int finalI = i;
             new Thread(()->{
                 String o = mycache.get(String.valueOf(finalI));
@@ -1403,7 +1403,7 @@ public class ReadWriteLockDemo {
 }
 
 class MyCache_ReadWriteLock{
-    private volatile Map<String,String> map=new HashMap<>();
+    private volatile Map\<String,String> map=new HashMap\<>();
 
     public void put(String key,String value){
         //写入
@@ -1484,14 +1484,14 @@ public class ReadWriteLockDemo {
     public static void main(String[] args) {
         MyCache_ReadWriteLock mycache = new MyCache_ReadWriteLock();
         //开启5个线程 写入数据
-        for (int i = 1; i <=5 ; i++) {
+        for (int i = 1; i \<=5 ; i++) {
             int finalI = i;
             new Thread(()->{
                 mycache.put(String.valueOf(finalI),String.valueOf(finalI));
             }).start();
         }
         //开启10个线程去读取数据
-        for (int i = 1; i <=10 ; i++) {
+        for (int i = 1; i \<=10 ; i++) {
             int finalI = i;
             new Thread(()->{
                 String o = mycache.get(String.valueOf(finalI));
@@ -1501,7 +1501,7 @@ public class ReadWriteLockDemo {
 }
 
 class MyCache_ReadWriteLock{
-    private volatile Map<String,String> map=new HashMap<>();
+    private volatile Map\<String,String> map=new HashMap\<>();
 
     //使用读写锁
     private ReadWriteLock readWriteLock=new ReentrantReadWriteLock();
@@ -1636,7 +1636,7 @@ BlockingQueue以下有Link链表实现的阻塞队列、也有Array数组实现�
      */
     public static void test1(){
         //需要初始化队列的大小
-        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue<>(3);
+        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue\<>(3);
 
         System.out.println(blockingQueue.add("a"));
         System.out.println(blockingQueue.add("b"));
@@ -1655,7 +1655,7 @@ BlockingQueue以下有Link链表实现的阻塞队列、也有Array数组实现�
      * 不抛出异常，有返回值
      */
     public static void test2(){
-        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue<>(3);
+        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue\<>(3);
         System.out.println(blockingQueue.offer("a"));
         System.out.println(blockingQueue.offer("b"));
         System.out.println(blockingQueue.offer("c"));
@@ -1673,7 +1673,7 @@ BlockingQueue以下有Link链表实现的阻塞队列、也有Array数组实现�
      * 等待 一直阻塞
      */
     public static void test3() throws InterruptedException {
-        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue<>(3);
+        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue\<>(3);
 
         //一直阻塞 不会返回
         blockingQueue.put("a");
@@ -1695,7 +1695,7 @@ BlockingQueue以下有Link链表实现的阻塞队列、也有Array数组实现�
      *  这种情况也会等待队列有位置 或者有产品 但是会超时结束
      */
     public static void test4() throws InterruptedException {
-        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue<>(3);
+        ArrayBlockingQueue blockingQueue = new ArrayBlockingQueue\<>(3);
         blockingQueue.offer("a");
         blockingQueue.offer("b");
         blockingQueue.offer("c");
@@ -1736,7 +1736,7 @@ put了一个元素，就必须从里面先take出来，否则不能再put进去�
  */
 public class SynchronousQueueDemo {
     public static void main(String[] args) {
-        BlockingQueue<String> synchronousQueue = new SynchronousQueue<>();
+        BlockingQueue\<String> synchronousQueue = new SynchronousQueue\<>();
         //研究一下 如果判断这是一个同步队列
 
         //使用两个进程
@@ -1823,7 +1823,7 @@ public class Demo01 {
         //线程池用完必须要关闭线程池
         try {
 
-            for (int i = 1; i <=100 ; i++) {
+            for (int i = 1; i \<=100 ; i++) {
                 //通过线程池创建线程
                 threadPool.execute(()->{
                     System.out.println(Thread.currentThread().getName()+ " ok");
@@ -1849,7 +1849,7 @@ public static ExecutorService newSingleThreadExecutor() {
     return new FinalizableDelegatedExecutorService
         (new ThreadPoolExecutor(1, 1,
                                 0L, TimeUnit.MILLISECONDS,
-                                new LinkedBlockingQueue<Runnable>()));
+                                new LinkedBlockingQueue\<Runnable>()));
 }
 ```
 
@@ -1857,7 +1857,7 @@ public static ExecutorService newSingleThreadExecutor() {
 public static ExecutorService newFixedThreadPool(int nThreads) {
     return new ThreadPoolExecutor(nThreads, nThreads,
                                   0L, TimeUnit.MILLISECONDS,
-                                  new LinkedBlockingQueue<Runnable>());
+                                  new LinkedBlockingQueue\<Runnable>());
 }
 ```
 
@@ -1865,7 +1865,7 @@ public static ExecutorService newFixedThreadPool(int nThreads) {
 public static ExecutorService newCachedThreadPool() {
     return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
                                   60L, TimeUnit.SECONDS,
-                                  new SynchronousQueue<Runnable>());
+                                  new SynchronousQueue\<Runnable>());
 }
 ```
 
@@ -1876,14 +1876,14 @@ public ThreadPoolExecutor(int corePoolSize,  //核心线程池大小
                           int maximumPoolSize, //最大的线程池大小
                           long keepAliveTime,  //超时了没有人调用就会释放
                           TimeUnit unit, //超时单位
-                          BlockingQueue<Runnable> workQueue, //阻塞队列
+                          BlockingQueue\<Runnable> workQueue, //阻塞队列
                           ThreadFactory threadFactory, //线程工厂 创建线程的 一般不用动
                           RejectedExecutionHandler handler //拒绝策略
                          ) {
-    if (corePoolSize < 0 ||
-        maximumPoolSize <= 0 ||
-        maximumPoolSize < corePoolSize ||
-        keepAliveTime < 0)
+    if (corePoolSize \< 0 ||
+        maximumPoolSize \<= 0 ||
+        maximumPoolSize \< corePoolSize ||
+        keepAliveTime \< 0)
         throw new IllegalArgumentException();
     if (workQueue == null || threadFactory == null || handler == null)
         throw new NullPointerException();
@@ -1996,7 +1996,7 @@ public interface Runnable {
  */
 public class Demo01 {
     public static void main(String[] args) {
-        Function<String,String> function = (str) ->{return str;};
+        Function\<String,String> function = (str) ->{return str;};
         System.out.println(function.apply("starasdas"));
     }
 }
@@ -2013,7 +2013,7 @@ public class Demo01 {
 public class Demo2 {
     public static void main(String[] args) {
         //判断字符串是否为空
-        Predicate<String> predicate = (str)->{return str.isEmpty();};
+        Predicate\<String> predicate = (str)->{return str.isEmpty();};
         System.out.println(predicate.test("11"));
         System.out.println(predicate.test(""));
     }
@@ -2034,7 +2034,7 @@ public class Demo2 {
  */
 public class Demo3 {
     public static void main(String[] args) {
-        Consumer<String> consumer = (str)->{
+        Consumer\<String> consumer = (str)->{
             System.out.println(str);
         };
         consumer.accept("abc");
@@ -2056,7 +2056,7 @@ public class Demo3 {
  */
 public class Demo4 {
     public static void main(String[] args) {
-        Supplier<String> supplier = ()->{return "1024";};
+        Supplier\<String> supplier = ()->{return "1024";};
         System.out.println(supplier.get());
     }
 }
@@ -2083,7 +2083,7 @@ public class Test {
         User user4 = new User(4,"d",24);
         User user5 = new User(5,"e",25);
         User user6 = new User(6,"f",26);
-        List<User> list = Arrays.asList(user1, user2, user3, user4, user5, user6);
+        List\<User> list = Arrays.asList(user1, user2, user3, user4, user5, user6);
 
         //计算交给流
         //链式编程！！！！
@@ -2125,7 +2125,7 @@ ForkJoin 在JDK1.7，并行执行任务！提高效率~。在大数据量速率�
 > 如何使用ForkJoin?
 
 - 1、通过**ForkJoinPool**来执行
-- 2、计算任务 **execute(ForkJoinTask<?> task)**
+- 2、计算任务 **execute(ForkJoinTask\<?> task)**
 
 ![image-20200718231444762](https://gitee.com/sunny_ou/blog/raw/master/img/image-20200718231444762.png)
 
@@ -2138,7 +2138,7 @@ package com.ogj.forkjoin;
 
 import java.util.concurrent.RecursiveTask;
 
-public class ForkJoinDemo extends RecursiveTask<Long> {
+public class ForkJoinDemo extends RecursiveTask\<Long> {
 
     private long star;
     private long end;
@@ -2157,9 +2157,9 @@ public class ForkJoinDemo extends RecursiveTask<Long> {
      */
     @Override
     protected Long compute() {
-        if((end-star)<temp){
+        if((end-star)\<temp){
             Long sum = 0L;
-            for (Long i = star; i < end; i++) {
+            for (Long i = star; i \< end; i++) {
                 sum+=i;
             }
 //            System.out.println(sum);
@@ -2203,7 +2203,7 @@ public class Test {
     public static void test1(){
         long star = System.currentTimeMillis();
         long sum = 0L;
-        for (long i = 1; i < 20_0000_0000; i++) {
+        for (long i = 1; i \< 20_0000_0000; i++) {
             sum+=i;
         }
         long end = System.currentTimeMillis();
@@ -2217,8 +2217,8 @@ public class Test {
     public static void test2() throws ExecutionException, InterruptedException {
         long star = System.currentTimeMillis();
         ForkJoinPool forkJoinPool = new ForkJoinPool();
-        ForkJoinTask<Long> task = new ForkJoinDemo(0L, 20_0000_0000L);
-        ForkJoinTask<Long> submit = forkJoinPool.submit(task);
+        ForkJoinTask\<Long> task = new ForkJoinDemo(0L, 20_0000_0000L);
+        ForkJoinTask\<Long> submit = forkJoinPool.submit(task);
         Long aLong = submit.get();
         System.out.println(aLong);
         long end = System.currentTimeMillis();
@@ -2271,7 +2271,7 @@ public static void main(String[] args) throws ExecutionException, InterruptedExc
 
         System.out.println(System.currentTimeMillis());
         System.out.println("---------------------");
-        CompletableFuture<Void> future = CompletableFuture.runAsync(()->{
+        CompletableFuture\<Void> future = CompletableFuture.runAsync(()->{
             //发起一个异步任务
             try {
                 TimeUnit.SECONDS.sleep(2);
@@ -2291,7 +2291,7 @@ public static void main(String[] args) throws ExecutionException, InterruptedExc
 
 ```java
 //有返回值的异步回调
-CompletableFuture<Integer> completableFuture=CompletableFuture.supplyAsync(()->{
+CompletableFuture\<Integer> completableFuture=CompletableFuture.supplyAsync(()->{
     System.out.println(Thread.currentThread().getName());
     try {
         TimeUnit.SECONDS.sleep(2);
@@ -2431,7 +2431,7 @@ public class JMMDemo01 {
 ```java
 /**
  * 不保证原子性
- * number <=2w
+ * number \<=2w
  * 
  */
 public class VDemo02 {
@@ -2447,9 +2447,9 @@ public class VDemo02 {
     public static void main(String[] args) {
         //理论上number  === 20000
 
-        for (int i = 1; i <= 20; i++) {
+        for (int i = 1; i \<= 20; i++) {
             new Thread(()->{
-                for (int j = 1; j <= 1000 ; j++) {
+                for (int j = 1; j \<= 1000 ; j++) {
                     add();
                 }
             }).start();
@@ -2489,9 +2489,9 @@ public class VDemo02 {
     public static void main(String[] args) {
         //理论上number  === 20000
 
-        for (int i = 1; i <= 20; i++) {
+        for (int i = 1; i \<= 20; i++) {
             new Thread(()->{
-                for (int j = 1; j <= 1000 ; j++) {
+                for (int j = 1; j \<= 1000 ; j++) {
                     add();
                 }
             }).start();
@@ -2664,7 +2664,7 @@ public class LazyMan {
 //        LazyMan instance = LazyMan.getInstance();
         Field key = LazyMan.class.getDeclaredField("key");
         key.setAccessible(true);
-        Constructor<LazyMan> declaredConstructor = LazyMan.class.getDeclaredConstructor(null);
+        Constructor\<LazyMan> declaredConstructor = LazyMan.class.getDeclaredConstructor(null);
         declaredConstructor.setAccessible(true); //无视了私有的构造器
         LazyMan lazyMan1 = declaredConstructor.newInstance();
         key.set(lazyMan1,false);
@@ -2714,9 +2714,9 @@ public enum EnumSingle {
 class Test{
     public static void main(String[] args) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         EnumSingle instance1 = EnumSingle.INSTANCE;
-        Constructor<EnumSingle> declaredConstructor = EnumSingle.class.getDeclaredConstructor(String.class,int.class);
+        Constructor\<EnumSingle> declaredConstructor = EnumSingle.class.getDeclaredConstructor(String.class,int.class);
         declaredConstructor.setAccessible(true);
-        //java.lang.NoSuchMethodException: com.ogj.single.EnumSingle.<init>()
+        //java.lang.NoSuchMethodException: com.ogj.single.EnumSingle.\<init>()
 
         EnumSingle instance2 = declaredConstructor.newInstance();
         System.out.println(instance1);
@@ -3028,7 +3028,7 @@ public class SpinlockDemo {
 
     //int 0
     //thread null
-    AtomicReference<Thread> atomicReference=new AtomicReference<>();
+    AtomicReference\<Thread> atomicReference=new AtomicReference\<>();
 
     //加锁
     public void myLock(){
@@ -3104,7 +3104,7 @@ public class TestSpinLock {
 
 > 死锁是什么？
 
-<img src="https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727191252276.png" alt="image-20200727191252276" style="zoom:150%;" />
+\<img src="https://gitee.com/sunny_ou/blog/raw/master/img/image-20200727191252276.png" alt="image-20200727191252276" style="zoom:150%;" />
 
 死锁测试，怎么排除死锁：
 
@@ -3196,7 +3196,7 @@ ThreadLocal意思是对于每个线程都有自己的变量，而且这个变量
 ```java
 public class TestThreadLocal {
     public static void main(String[] args) {
-        ThreadLocal<String> local = new ThreadLocal<>();
+        ThreadLocal\<String> local = new ThreadLocal\<>();
         //新建一个随机数类
         Random random=new Random();
         IntStream.range(0,5).forEach(a->new Thread(()->{
@@ -3238,11 +3238,11 @@ public void set(T value) {
 
 ```java
 static class ThreadLocalMap {
-    static class Entry extends WeakReference<ThreadLocal<?>> {
+    static class Entry extends WeakReference\<ThreadLocal\<?>> {
             /** The value associated with this ThreadLocal. */
             Object value;
 
-            Entry(ThreadLocal<?> k, Object v) {
+            Entry(ThreadLocal\<?> k, Object v) {
                 super(k);
                 value = v;
             }
@@ -3512,7 +3512,7 @@ class.getConstructor(参数1，参数2，参数3);
 如果我们不进行暴力破解，就会出现无法反射使用函数 异常：
 
 ```java
-Class<? extends Apple> aClass = apple.getClass();
+Class\<? extends Apple> aClass = apple.getClass();
 Apple apple1 = aClass.newInstance();
 apple1.setPrice(5.0);
 apple1.setName("苹果2");
@@ -3933,7 +3933,7 @@ private void unparkSuccessor(Node node) {
     //获取当前节点的ws值
     int ws = node.waitStatus;
     //如果小于0则置为0
-    if (ws < 0)
+    if (ws \< 0)
         compareAndSetWaitStatus(node, ws, 0);
 
    
@@ -3943,7 +3943,7 @@ private void unparkSuccessor(Node node) {
     if (s == null || s.waitStatus > 0) {
         s = null;
         for (Node t = tail; t != null && t != node; t = t.prev)
-            if (t.waitStatus <= 0)
+            if (t.waitStatus \<= 0)
                 s = t;
     }
     // 如果后驱节点非null，则唤醒该后驱节点持有的线程
@@ -3962,7 +3962,7 @@ private void unparkSuccessor(Node node) {
 
 ```java
 public final void acquireShared(int arg) {
-    if (tryAcquireShared(arg) < 0)
+    if (tryAcquireShared(arg) \< 0)
         doAcquireShared(arg);
 }
 ```
@@ -4046,8 +4046,8 @@ private void setHeadAndPropagate(Node node, int propagate) {
          * racing acquires/releases, so most need signals now or soon
          * anyway.
          */
-        if (propagate > 0 || h == null || h.waitStatus < 0 ||
-        (h = head) == null || h.waitStatus < 0) {
+        if (propagate > 0 || h == null || h.waitStatus \< 0 ||
+        (h = head) == null || h.waitStatus \< 0) {
         Node s = node.next;
         if (s == null || s.isShared())
         doReleaseShared();
