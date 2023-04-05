@@ -1,7 +1,7 @@
 {
-  "name": "dean-site",
-  "version": "2.0.0",
-  "description": "A project of vuepress-theme-hope",
+  "name": "stiflea",
+  "version": "1.0.0",
+  "description": "A open source shared-knowledge storage",
   "license": "MIT",
   "type": "module",
   "scripts": {

@@ -1,6 +1,5 @@
-import { defineUserConfig } from "vuepress";
+import {defineUserConfig} from "vuepress";
 import theme from "./theme.js";
-
 export default defineUserConfig({
   base: "/",
   locales: {
@@ -11,5 +10,6 @@ export default defineUserConfig({
     }
   },
   theme,
-  shouldPrefetch: false,
+  shouldPrefetch: false
 });
+
