@@ -1,4 +1,4 @@
-import{_ as a,o as s,c as n,a as e}from"./app.19549cac.js";const t={},l=e(`<h1 id="centos-安装-docker" tabindex="-1"><a class="header-anchor" href="#centos-安装-docker" aria-hidden="true">#</a> CentOS 安装 Docker</h1><p>安装步骤</p><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token function">sudo</span> yum remove <span class="token function">docker</span> <span class="token punctuation">\\</span>
+import{_ as a,o as s,c as n,a as e}from"./app.d41ceb81.js";const t={},l=e(`<h1 id="centos-安装-docker" tabindex="-1"><a class="header-anchor" href="#centos-安装-docker" aria-hidden="true">#</a> CentOS 安装 Docker</h1><p>安装步骤</p><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token function">sudo</span> yum remove <span class="token function">docker</span> <span class="token punctuation">\\</span>
                   docker-client <span class="token punctuation">\\</span>
                   docker-client-latest <span class="token punctuation">\\</span>
                   docker-common <span class="token punctuation">\\</span>
