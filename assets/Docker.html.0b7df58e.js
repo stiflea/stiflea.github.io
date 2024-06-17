@@ -1,4 +1,4 @@
-import{_ as a,o as s,c as n,a as e}from"./app.91ea4029.js";const t={},l=e(`<h1 id="centos-安装-docker" tabindex="-1"><a class="header-anchor" href="#centos-安装-docker" aria-hidden="true">#</a> CentOS 安装 Docker</h1><p>安装步骤</p><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token function">sudo</span> yum remove <span class="token function">docker</span> <span class="token punctuation">\\</span>
+import{_ as a,o as s,c as n,a as e}from"./app.5e73b277.js";const t={},l=e(`<h1 id="centos-安装-docker" tabindex="-1"><a class="header-anchor" href="#centos-安装-docker" aria-hidden="true">#</a> CentOS 安装 Docker</h1><p>安装步骤</p><div class="language-bash line-numbers-mode" data-ext="sh"><pre class="language-bash"><code><span class="token function">sudo</span> yum remove <span class="token function">docker</span> <span class="token punctuation">\\</span>
                   docker-client <span class="token punctuation">\\</span>
                   docker-client-latest <span class="token punctuation">\\</span>
                   docker-common <span class="token punctuation">\\</span>
@@ -54,7 +54,7 @@ EOF</span>
 <span class="token parameter variable">-v</span> /data/docker/elasticsearch/plugins:/usr/share/elasticsearch/plugins <span class="token punctuation">\\</span>
 <span class="token parameter variable">-it</span> docker.elastic.co/elasticsearch/elasticsearch:8.3.3
 
-
+<span class="token comment"># 运行elk</span>
 <span class="token function">docker</span> run <span class="token parameter variable">--name</span> elasticsearch <span class="token parameter variable">--net</span> elastic <span class="token parameter variable">-p</span> <span class="token number">9200</span>:9200 <span class="token parameter variable">-p</span> <span class="token number">9300</span>:9300 <span class="token punctuation">\\</span>
 <span class="token parameter variable">-e</span>  <span class="token string">&quot;discovery.type=single-node&quot;</span> <span class="token punctuation">\\</span>
 <span class="token parameter variable">-e</span> <span class="token string">&quot;xpack.security.enabled=false&quot;</span> <span class="token punctuation">\\</span>
